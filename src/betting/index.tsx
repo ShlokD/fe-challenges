@@ -91,7 +91,7 @@ const Betting = () => {
   const toggleMenu = () => setShowMenu((prev) => !prev);
 
   const fetchEvents = async () => {
-    const res = await fetch("http://www.mocky.io/v2/59f08692310000b4130e9f71");
+    const res = await fetch("https://www.mocky.io/v2/59f08692310000b4130e9f71");
     const json = await res?.json();
     setEvents(transformEvents(json));
   };
