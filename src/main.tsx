@@ -7,7 +7,8 @@ import "./index.css";
 
 const Betting = React.lazy(() => import("./betting"));
 const Promotions = React.lazy(() => import("./promotions"));
-
+const Products = React.lazy(() => import("./amaro-products"));
+const Lottery = React.lazy(() => import("./brainn-lottery"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
   {
     path: "/promotions",
     element: <Promotions />,
+  },
+  {
+    path: "/amaro-products",
+    element: <Products />,
+  },
+  {
+    path: "/brainn-lottery",
+    element: <Lottery />,
   },
 ]);
 

@@ -16,6 +16,12 @@ function App() {
         <li className="text-2xl w-10/12 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/promotions`}>Addison Global - Promotions</Link>
         </li>
+        <li className="text-2xl w-10/12 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/amaro-products`}>Amaro Products</Link>
+        </li>
+        <li className="text-2xl w-10/12 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/brainn-lottery`}>Brainn Lottery</Link>
+        </li>
       </ul>
     </div>
   );

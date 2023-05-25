@@ -1,0 +1,36 @@
+.box {
+  height: 300px;
+  overflow-x: clip;
+}
+
+.box:after {
+  content: "";
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 360px;
+  transform: translate(-50%, -50%);
+  background-color: rgb(243 244 246);
+  border-radius: 100%;
+  z-index: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .box {
+    height: 100%;
+  }
+
+  .box:after {
+    content: "";
+    width: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    transform: translate(-40%, -50%);
+    background-color: rgb(243 244 246);
+    border-radius: 100%;
+    z-index: 0;
+  }
+}
