@@ -1,7 +1,8 @@
-import { it, describe, vi } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
-import Betting from "..";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { describe, it, vi } from "vitest";
+
+import Betting from "..";
 
 global.fetch = vi.fn();
 
@@ -87,12 +88,14 @@ describe("<Betting />", () => {
     render(
       <MemoryRouter>
         <Betting />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     const openMenu = screen.getByRole("button", { name: /open menu/i });
     expect(openMenu).toBeDefined();
     fireEvent.click(openMenu);
-    const close = await screen.findByRole("button", { name: /close menu/i });
+    const close = await screen.findByRole("button", {
+      name: /close menu/i,
+    });
     expect(close).toBeDefined();
   });
 
@@ -101,7 +104,7 @@ describe("<Betting />", () => {
     render(
       <MemoryRouter>
         <Betting />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     expect(await screen.findByText(/real madrid vs barcelona/i)).toBeDefined();
     expect(screen.getAllByText(/team to win/i)).toHaveLength(2);
@@ -118,7 +121,7 @@ describe("<Betting />", () => {
     render(
       <MemoryRouter>
         <Betting />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     expect(await screen.findByText(/real madrid vs barcelona/i)).toBeDefined();
     expect(screen.getAllByText(/team to win/i)).toHaveLength(2);

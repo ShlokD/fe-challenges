@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import type { EventType, SelectionType, SelectedBets } from "./types";
+
+import type { EventType, SelectedBets, SelectionType } from "./types";
 import { transformEvents } from "./utils";
+
 const Header = ({ toggleMenu }: { toggleMenu: () => void }) => {
   return (
     <header className="w-full flex flex-row justify-between relative">
@@ -120,7 +122,7 @@ const Betting = () => {
     id: string;
   }) => {
     setSelectedBets((prev) =>
-      prev.filter((p) => p.marketId !== marketId && p.id !== id)
+      prev.filter((p) => p.marketId !== marketId && p.id !== id),
     );
   };
 
@@ -182,7 +184,9 @@ const Betting = () => {
           className={
             "flex flex-col w-4/6 h-full bg-white z-10 absolute right-0 transition-transform duration-300"
           }
-          style={{ transform: `translateX(${showMenu ? "0px" : "2000px"})` }}
+          style={{
+            transform: `translateX(${showMenu ? "0px" : "2000px"})`,
+          }}
           aria-hidden={!showMenu}
         >
           <button

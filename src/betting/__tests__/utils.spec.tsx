@@ -1,4 +1,5 @@
-import { it, describe } from "vitest";
+import { describe, it } from "vitest";
+
 import { transformEvents } from "../utils";
 
 describe("utility methods", () => {
