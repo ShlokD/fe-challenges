@@ -12,12 +12,12 @@ const PromoCard = (props: PromotionType) => {
     props;
 
   return (
-    <div className="w-full flex flex-col py-4">
+    <div className="w-full lg:w-1/2 flex flex-col py-4">
       <picture>
         <img
           style={{ height: "300px" }}
           className="w-full"
-          src={"https://fakeimg.pl/400x300"}
+          src={"https://fakeimg.pl/800x300"}
           alt={name}
         ></img>
       </picture>
@@ -59,7 +59,7 @@ const Promotions = () => {
   }
 
   return (
-    <div className="flex flex-col w-full px-3 overflow-y-scroll">
+    <div className="flex flex-col w-full px-3">
       <Link to="/">
         <img src="/chess.ico" alt="To Home" />
       </Link>
@@ -101,7 +101,7 @@ const Promotions = () => {
           </label>
         </div>
       </div>
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full items-center">
         {displayPromos?.map((promo) => {
           return <PromoCard {...promo} key={promo.id} />;
         })}
