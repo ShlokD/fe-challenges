@@ -145,7 +145,7 @@ const Betting = () => {
   }, {} as Record<string, string>);
 
   return (
-    <div className="w-full h-screen bg-gray-100 ">
+    <div className="w-full h-full">
       <Header toggleMenu={toggleMenu} />
       <div className="h-full w-full flex flex-col">
         <div className="flex flex-col h-full w-full items-center">
@@ -182,7 +182,7 @@ const Betting = () => {
         </div>
         <div
           className={
-            "flex flex-col w-4/6 h-full bg-white z-10 absolute right-0 transition-transform duration-300"
+            "flex flex-col w-4/6 h-screen bg-white z-10 absolute right-0 top-0 transition-transform duration-300"
           }
           style={{
             transform: `translateX(${showMenu ? "0px" : "2000px"})`,
