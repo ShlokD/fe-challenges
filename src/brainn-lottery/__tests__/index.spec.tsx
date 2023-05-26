@@ -1,12 +1,8 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { describe, it, vi } from "vitest";
+import { describe, it } from "vitest";
 
 import Lottery from "..";
-
-function createFetchResponse() {
-  return { json: () => new Promise((resolve) => resolve(data)) };
-}
 
 beforeEach(() => {
   render(
