@@ -6,6 +6,7 @@ import { Product, Size } from "./types";
 type CardProps = {
   product_id: number;
   saleOnly: boolean;
+  quantities?: Record<string, number>;
   onATC?: ({
     id,
     qty,
@@ -25,13 +26,16 @@ type CartItem = {
 
 type ProductCardProps = Product & CardProps;
 
-const generateInitState = (sizes?: Size[]) => {
+const generateInitState = (
+  sizes?: Size[],
+  quantities?: Record<string, number>,
+) => {
   if (!sizes) {
     return {} as Record<string, number>;
   }
-  return sizes?.reduce((state, size: Size) => {
+  return sizes?.reduce((state, size: Size, index: number) => {
     if (size?.size) {
-      state[size.size] = 0;
+      state[size.size] = quantities?.[index] || 0;
     }
     return state;
   }, {} as Record<string, number>);
@@ -48,6 +52,7 @@ const ProductCard: FC<ProductCardProps> = (props) => {
     discount_percentage,
     product_id,
     saleOnly,
+    quantities,
     onATC,
   } = props;
 
@@ -56,7 +61,7 @@ const ProductCard: FC<ProductCardProps> = (props) => {
     availableSizeIndex !== -1 ? availableSizeIndex : 0,
   );
   const [qty, setQty] = useState<Record<string, number>>(
-    generateInitState(sizes),
+    generateInitState(sizes, quantities),
   );
 
   const toggleSelectedSize = (index: number) => {
@@ -195,10 +200,30 @@ const ProductCard: FC<ProductCardProps> = (props) => {
   );
 };
 
+const saveCartToLocalStorage = (cart: CartItem[]) => {
+  try {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  } catch (_) {
+    return null;
+  }
+};
+
+const loadCartFromLocalStorage = () => {
+  try {
+    const val = localStorage.getItem("cart");
+    if (val) {
+      return JSON.parse(val);
+    }
+    return [];
+  } catch (_) {
+    return [];
+  }
+};
+
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [saleOnly, setSaleOnly] = useState<boolean>(false);
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItem[]>(loadCartFromLocalStorage());
   const [showCart, setShowCart] = useState<boolean>(false);
 
   const fetchProducts = async () => {
@@ -208,6 +233,13 @@ const Products = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    window.onbeforeunload = () => {
+      console.log("saving", cart);
+      saveCartToLocalStorage(cart);
+    };
+  }, [cart]);
 
   const onATC = ({
     id,
@@ -220,7 +252,16 @@ const Products = () => {
   }) => {
     setCart((prev) => {
       if (qty > 0) {
-        return [...prev, { id: id, sizeIndex, qty }];
+        const index = prev.findIndex(
+          (p) => p.id === id && p.sizeIndex === sizeIndex,
+        );
+        const updated = [...prev];
+        if (index > -1) {
+          updated[index] = { id, sizeIndex, qty };
+          return updated;
+        } else {
+          return [...prev, { id: id, sizeIndex, qty }];
+        }
       } else {
         return prev.filter((p) => p.id !== id);
       }
@@ -232,8 +273,16 @@ const Products = () => {
     const actual_price = product?.actual_price?.split("R$ ")?.[1];
     const price_string = actual_price?.split(",")?.join(".") || "0";
     const price = isNaN(Number(price_string)) ? 0 : Number(price_string);
-    return total + price;
+    return total + price * cartItem.qty;
   }, 0);
+
+  const cartQuantities = cart.reduce((cartQtys, cartItem) => {
+    cartQtys[cartItem.id] = {
+      ...cartQtys[cartItem.id],
+      [cartItem.sizeIndex]: cartItem.qty || 0,
+    };
+    return cartQtys;
+  }, {} as Record<string, Record<string, number>>);
   return (
     <>
       <div className="flex flex-col w-full p-2">
@@ -266,6 +315,7 @@ const Products = () => {
                 key={`product-${index}`}
                 {...product}
                 product_id={index}
+                quantities={cartQuantities[index]}
                 onATC={onATC}
               />
             ))}
@@ -296,13 +346,13 @@ const Products = () => {
                 return null;
               }
               const product = products[cartItem.id];
+              if (!product) {
+                return null;
+              }
               const size = product?.sizes?.[cartItem.sizeIndex];
               return (
-                <>
-                  <div
-                    key={`cart-${idx}`}
-                    className="w-full p-2 my-4 flex flex-row items-center"
-                  >
+                <div key={`cart-${idx}`}>
+                  <div className="w-full p-2 my-4 flex flex-row items-center">
                     <img
                       className="w-1/3"
                       style={{ minHeight: "50px" }}
@@ -316,10 +366,11 @@ const Products = () => {
                       <p className="text-lg font-bold md:text-2xl">
                         {product.actual_price}
                       </p>
+                      <p className="text-lg font-bold">Qty: {cartItem.qty}</p>
                     </div>
                   </div>
                   <hr className="border-2" />
-                </>
+                </div>
               );
             })}
           </div>
