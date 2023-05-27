@@ -160,9 +160,7 @@ const ProductCard: FC<ProductCardProps> = (props) => {
           return (
             <div
               key={id}
-              className={`text-sm md:text-2xl border-4 px-1 py-2 md:py-5 mx-1 my-1 h-10 w-10 md:h-20 md:w-20 text-center rounded-full ${
-                checked ? "border-black" : "border-gray-100"
-              }`}
+              className={`text-sm md:text-2xl h-auto my-5 mx-2 text-center`}
             >
               <input
                 className="hidden"
@@ -173,7 +171,14 @@ const ProductCard: FC<ProductCardProps> = (props) => {
                 onChange={() => toggleSelectedSize(i)}
                 disabled={!size.available}
               />
-              <label htmlFor={id}>{size.size}</label>
+              <label
+                className={`border-4 p-3 md:p-4 rounded-lg ${
+                  checked ? "border-black" : "border-gray-100"
+                }`}
+                htmlFor={id}
+              >
+                {size.size}
+              </label>
             </div>
           );
         })}
