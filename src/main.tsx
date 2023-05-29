@@ -9,6 +9,7 @@ const Betting = React.lazy(() => import("./betting"));
 const Promotions = React.lazy(() => import("./promotions"));
 const Products = React.lazy(() => import("./amaro-products"));
 const Lottery = React.lazy(() => import("./brainn-lottery"));
+const ApikiBlog = React.lazy(() => import("./apiki-blog"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,14 +31,16 @@ const router = createBrowserRouter([
     path: "/brainn-lottery",
     element: <Lottery />,
   },
+  {
+    path: "/apiki-blog",
+    element: <ApikiBlog />,
+  },
 ]);
 
 export const Main = (
-  <React.StrictMode>
-    <React.Suspense>
-      <RouterProvider router={router} />
-    </React.Suspense>
-  </React.StrictMode>
+  <React.Suspense>
+    <RouterProvider router={router} />
+  </React.Suspense>
 );
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
