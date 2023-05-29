@@ -111,7 +111,10 @@ const Internal: FC<InternalProps> = (props) => {
       <Link className="text-2xl underline p-2" to="/apiki-blog">
         &larr;Back
       </Link>
-      <h1 className="font-bold p-2 my-2 text-4xl">{blog.title}</h1>
+      <h1
+        className="font-bold p-2 my-2 text-4xl"
+        dangerouslySetInnerHTML={{ __html: blog.title }}
+      ></h1>
       <div
         className="text-xl flex flex-col w-11/12 "
         dangerouslySetInnerHTML={{ __html: blog.content }}
