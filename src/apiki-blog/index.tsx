@@ -20,6 +20,8 @@ type InternalProps = {
   slug: string;
 };
 
+const BLOG_CACHE: Record<string, Blog> = {};
+
 const transformBlogs = (blogs: RawBlogs[]): Record<string, string>[] => {
   if (!blogs) {
     return [];
@@ -86,20 +88,27 @@ const Home: FC<HomeProps> = (props) => {
 
 const Internal: FC<InternalProps> = (props) => {
   const { slug } = props;
-  const [blog, setBlog] = useState<Blog>({
-    title: "",
-    content: "",
-  });
+  const [blog, setBlog] = useState<Blog>(
+    BLOG_CACHE[slug] || {
+      title: "",
+      description: "",
+    },
+  );
 
   const fetchBlog = async () => {
     window.scrollTo(0, 0);
-    const url = `https://blog.apiki.com/wp-json/wp/v2/posts?_embed&slug=${slug}`;
-    const res = await fetch(url);
-    const json = await res.json();
-    setBlog({
-      title: json[0]?.title?.rendered,
-      content: json[0]?.content?.rendered,
-    });
+
+    if (!BLOG_CACHE[slug]) {
+      const url = `https://blog.apiki.com/wp-json/wp/v2/posts?_embed&slug=${slug}`;
+      const res = await fetch(url);
+      const json = await res.json();
+      const newBlog = {
+        title: json[0]?.title?.rendered,
+        content: json[0]?.content?.rendered,
+      };
+      BLOG_CACHE[slug] = newBlog;
+      setBlog(newBlog);
+    }
   };
 
   useEffect(() => {
