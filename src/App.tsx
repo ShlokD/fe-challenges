@@ -25,6 +25,9 @@ function App() {
         <li className="text-2xl w-10/12 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/apiki-blog`}>Apiki Blog</Link>
         </li>
+        <li className="text-2xl w-10/12 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/b2w-marketplace`}>B2W Marketplace</Link>
+        </li>
       </ul>
     </div>
   );

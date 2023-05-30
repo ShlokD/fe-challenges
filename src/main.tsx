@@ -10,6 +10,7 @@ const Promotions = React.lazy(() => import("./promotions"));
 const Products = React.lazy(() => import("./amaro-products"));
 const Lottery = React.lazy(() => import("./brainn-lottery"));
 const ApikiBlog = React.lazy(() => import("./apiki-blog"));
+const UserProfile = React.lazy(() => import("./b2w-marketplace"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/apiki-blog",
     element: <ApikiBlog />,
+  },
+  {
+    path: "/b2w-marketplace",
+    element: <UserProfile />,
   },
 ]);
 
