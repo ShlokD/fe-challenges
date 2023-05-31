@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
+import HomeLink from "../home-link";
 import { Product, Size } from "./types";
 
 type CardProps = {
@@ -292,9 +292,7 @@ const Products = () => {
     <>
       <div className="flex flex-col w-full p-2">
         <div className="flex flex-row justify-between">
-          <Link to="/">
-            <img src="/chess.ico" alt="To Home" />
-          </Link>
+          <HomeLink />
           <button className="p-4" onClick={() => setShowCart((prev) => !prev)}>
             <img src="/cart.png" height="32" width="32" alt="View Cart" />
           </button>

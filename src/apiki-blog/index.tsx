@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import HomeLink from "../home-link";
 import { Blog, RawBlogs } from "./types";
 
 type BlogCardProps = {
@@ -171,9 +172,7 @@ const ApikiBlog = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <Link to="/">
-        <img src="/chess.ico" alt="To Home" />
-      </Link>
+      <HomeLink />
       {slug && slug.length > 0 ? (
         <Internal slug={slug} />
       ) : (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
+import HomeLink from "../home-link";
 import { PromotionType } from "./types";
 
 const PromoCard = (props: PromotionType) => {
@@ -60,9 +60,7 @@ const Promotions = () => {
 
   return (
     <div className="flex flex-col w-full px-3">
-      <Link to="/">
-        <img src="/chess.ico" alt="To Home" />
-      </Link>
+      <HomeLink />
       <div className="flex flex-row w-full justify-center  py-8">
         <div className="w-50">
           <input

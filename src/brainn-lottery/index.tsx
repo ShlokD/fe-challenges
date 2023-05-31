@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
+import HomeLink from "../home-link";
 import "./index.css";
 
 const LOTTOS = [
@@ -40,9 +40,7 @@ const Lottery = () => {
 
   return (
     <div className="flex flex-col w-full h-full h-screen bg-gray-100">
-      <Link className="mx-4" to="/">
-        <img src="/chess.ico" alt="To Home" />
-      </Link>
+      <HomeLink />
       <div className="flex flex-col w-full lg:flex-row lg:h-full my-2 z-10 items-center lg:justify-center">
         <div
           className={`w-full lg:w-1/2 lg:h-full box p-2 overflow-x-hidden flex items-center justify-center ${bgColor}`}

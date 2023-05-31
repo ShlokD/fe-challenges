@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
+import HomeLink from "../home-link";
 import { User } from "./types";
 
 type UserCardProps = User & {
@@ -231,9 +231,12 @@ const Suggestions: FC<SuggestionsProps> = (props) => {
       <h2 className="p-2 font-bold text-xl">Suggestions</h2>
 
       <div className="flex flex-row flex-wrap gap-2 m-2">
-        {suggestions?.map((suggestion) => {
+        {suggestions?.map((suggestion, i: number) => {
           return (
-            <div className="w-1/6 p-2 flex flex-col items-center border-2">
+            <div
+              key={`suggestion-${i}`}
+              className="w-1/6 p-2 flex flex-col items-center border-2"
+            >
               <img
                 className="rounded-full"
                 src={suggestion.picture}
@@ -298,9 +301,7 @@ const UserProfile = () => {
   return (
     <div className="flex flex-col">
       <header className="bg-purple-800 p-2 flex items-center justify-between">
-        <Link className="p-2" to="/">
-          <img src="/chess.ico" alt="To Home" />
-        </Link>
+        <HomeLink />
         <Following
           following={following}
           handleFollowClick={handleFollowClick}

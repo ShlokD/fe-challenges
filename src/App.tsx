@@ -28,6 +28,12 @@ function App() {
         <li className="text-2xl w-10/12 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/b2w-marketplace`}>B2W Marketplace</Link>
         </li>
+        <li className="text-2xl w-10/12 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/bossabox-tools`}>Bossabox - Useful Tools</Link>
+        </li>
+        <li className="text-2xl w-10/12 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/ciclic-interest-rate`}>Ciclic - Interest Calculator</Link>
+        </li>
       </ul>
     </div>
   );

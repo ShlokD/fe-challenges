@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
+import HomeLink from "../home-link";
 import type { EventType, SelectedBets, SelectionType } from "./types";
 import { transformEvents } from "./utils";
 
 const Header = ({ toggleMenu }: { toggleMenu: () => void }) => {
   return (
     <header className="w-full flex flex-row justify-between relative">
-      <Link to="/">
-        <img src="/chess.ico" alt="To Home" />
-      </Link>
+      <HomeLink />
       <nav className="flex flex-row justify-end">
         <button className="right-0" onClick={toggleMenu}>
           <img height="64" width="64" src="/hamburger.png" alt="Open Menu" />

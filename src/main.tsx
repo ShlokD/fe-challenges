@@ -11,6 +11,9 @@ const Products = React.lazy(() => import("./amaro-products"));
 const Lottery = React.lazy(() => import("./brainn-lottery"));
 const ApikiBlog = React.lazy(() => import("./apiki-blog"));
 const UserProfile = React.lazy(() => import("./b2w-marketplace"));
+const Tools = React.lazy(() => import("./bossabox-tools"));
+const InterestRate = React.lazy(() => import("./ciclic-interest"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,11 +43,21 @@ const router = createBrowserRouter([
     path: "/b2w-marketplace",
     element: <UserProfile />,
   },
+  {
+    path: "/bossabox-tools",
+    element: <Tools />,
+  },
+  {
+    path: "/ciclic-interest-rate",
+    element: <InterestRate />,
+  },
 ]);
 
 export const Main = (
   <React.Suspense>
-    <RouterProvider router={router} />
+    <main>
+      <RouterProvider router={router} />
+    </main>
   </React.Suspense>
 );
 
