@@ -171,18 +171,22 @@ const ApikiBlog = () => {
   }, [location.search]);
 
   return (
-    <div className="flex flex-col w-full">
-      <HomeLink />
-      {slug && slug.length > 0 ? (
-        <Internal slug={slug} />
-      ) : (
-        <Home
-          blogs={blogs}
-          appState={appState}
-          handleLoadMore={handleLoadMore}
-        />
-      )}
-    </div>
+    <>
+      <header>
+        <HomeLink />
+      </header>
+      <main className="flex flex-col w-full">
+        {slug && slug.length > 0 ? (
+          <Internal slug={slug} />
+        ) : (
+          <Home
+            blogs={blogs}
+            appState={appState}
+            handleLoadMore={handleLoadMore}
+          />
+        )}
+      </main>
+    </>
   );
 };
 

@@ -60,7 +60,7 @@ const SelectionInput = ({
           <div
             key={id}
             className={`w-2/5 text-center p-4 m-2 border-2 border-black ${
-              isSelected ? "bg-green-500 text-white" : "bg-white text-black"
+              isSelected ? "bg-green-500 text-black" : "bg-white text-black"
             }`}
           >
             <input
@@ -143,87 +143,91 @@ const Betting = () => {
   }, {} as Record<string, string>);
 
   return (
-    <div className="w-full h-full">
+    <>
       <Header toggleMenu={toggleMenu} />
-      <div className="h-full w-full flex flex-col">
-        <div className="flex flex-col h-full w-full items-center">
-          {events?.map((evt, idx) => {
-            return (
-              <div
-                key={`event-${idx}`}
-                className="mx-4 flex flex-col justify-center w-10/12"
-              >
-                <div className="w-full text-center">
-                  <p className="text-2xl py-8 px-2 font-bold text-center">
-                    {evt.name}
-                  </p>
-                </div>
-                <div className="w-full">
-                  {evt.markets.map((market, midx) => {
-                    return (
-                      <div key={`market-${midx}`} className="py-1 px-2">
-                        <p className="text-gray-400">{market.name}</p>
-                        <SelectionInput
-                          selections={market.selections}
-                          marketId={market.id}
-                          addToSelected={addToSelected}
-                          removeFromSelected={removeFromSelected}
-                          selectedBet={bets[market?.id] || ""}
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <div
-          className={
-            "flex flex-col w-4/6 h-screen bg-white z-10 absolute right-0 top-0 transition-transform duration-300"
-          }
-          style={{
-            transform: `translateX(${showMenu ? "0px" : "2000px"})`,
-          }}
-          aria-hidden={!showMenu}
-        >
-          <button
-            className="absolute right-0 text-5xl p-4 text-gray-400"
-            onClick={toggleMenu}
-            aria-label="Close Menu"
-          >
-            X
-          </button>
-          <div className="flex flex-col mt-20">
-            {betsToDisplay.map((bet) => {
+      <main className="w-full h-full flex flex-col">
+        <h1 className="text-4xl self-center font-bold">Place your bets</h1>
+        <div className="h-full w-full flex flex-col">
+          <div className="flex flex-col h-full w-full items-center">
+            {events?.map((evt, idx) => {
               return (
                 <div
-                  className="flex flex-col items-center"
-                  key={bet?.selection?.id}
+                  key={`event-${idx}`}
+                  className="mx-4 flex flex-col justify-center w-10/12"
                 >
-                  <p className="text-xl my-2">
-                    {bet?.market?.name}: {bet?.selection?.name}
-                  </p>
-                  <p className="text-xl my-2">{bet?.selection?.price}</p>
-                  <button
-                    className="bg-black text-white rounded-lg p-4"
-                    onClick={() =>
-                      removeFromSelected({
-                        marketId: bet?.market?.id || "",
-                        id: bet?.selection?.id || "",
-                      })
-                    }
-                  >
-                    Delete
-                  </button>
-                  <hr className="w-full border-2 border-black my-2" />
+                  <div className="w-full text-center">
+                    <p className="text-2xl py-8 px-2 font-bold text-center">
+                      {evt.name}
+                    </p>
+                  </div>
+                  <div className="w-full">
+                    {evt.markets.map((market, midx) => {
+                      return (
+                        <div key={`market-${midx}`} className="py-1 px-2">
+                          <p className="text-gray-700">{market.name}</p>
+                          <SelectionInput
+                            selections={market.selections}
+                            marketId={market.id}
+                            addToSelected={addToSelected}
+                            removeFromSelected={removeFromSelected}
+                            selectedBet={bets[market?.id] || ""}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               );
             })}
           </div>
+          <div
+            className={
+              "flex flex-col w-4/6 h-screen bg-white z-10 absolute right-0 top-0 transition-transform duration-300"
+            }
+            style={{
+              transform: `translateX(${showMenu ? "0px" : "2000px"})`,
+            }}
+            aria-hidden={!showMenu}
+          >
+            <button
+              className="absolute right-0 text-5xl p-4 text-gray-400"
+              onClick={toggleMenu}
+              aria-label="Close Menu"
+              disabled={!showMenu}
+            >
+              X
+            </button>
+            <div className="flex flex-col mt-20">
+              {betsToDisplay.map((bet) => {
+                return (
+                  <div
+                    className="flex flex-col items-center"
+                    key={bet?.selection?.id}
+                  >
+                    <p className="text-xl my-2">
+                      {bet?.market?.name}: {bet?.selection?.name}
+                    </p>
+                    <p className="text-xl my-2">{bet?.selection?.price}</p>
+                    <button
+                      className="bg-black text-white rounded-lg p-4"
+                      onClick={() =>
+                        removeFromSelected({
+                          marketId: bet?.market?.id || "",
+                          id: bet?.selection?.id || "",
+                        })
+                      }
+                    >
+                      Delete
+                    </button>
+                    <hr className="w-full border-2 border-black my-2" />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </main>
+    </>
   );
 };
 

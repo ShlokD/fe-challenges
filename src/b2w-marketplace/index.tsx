@@ -176,12 +176,13 @@ const UserCard: FC<UserCardProps> = (props) => {
             height={128}
             width={128}
             className="rounded-full border-4"
+            alt={first + last}
           />
         </div>
         <div className="h-1/2 my-2 text-center">
-          <p className="text-4xl font-bold p-1">
+          <h1 className="text-4xl font-bold p-1">
             {first} {last}
-          </p>
+          </h1>
           <p className="text-xl font-bold p-1">
             {city}, {country}
           </p>
@@ -307,13 +308,15 @@ const UserProfile = () => {
           handleFollowClick={handleFollowClick}
         />
       </header>
-      <UserCard
-        {...user}
-        isFollowing={isFollowing}
-        handleFollowClick={handleFollowClick}
-        handleNextClick={handleNextClick}
-      />
-      {!user.isSelf && <Suggestions suggestions={suggestions} />}
+      <main>
+        <UserCard
+          {...user}
+          isFollowing={isFollowing}
+          handleFollowClick={handleFollowClick}
+          handleNextClick={handleNextClick}
+        />
+        {!user.isSelf && <Suggestions suggestions={suggestions} />}
+      </main>
     </div>
   );
 };

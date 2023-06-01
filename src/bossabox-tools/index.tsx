@@ -151,7 +151,7 @@ const Tools = () => {
 
   return (
     <div className="flex flex-col items-center w-full h-full">
-      <header className="flex flex-col p-2 w-full h-full bg-green-500 text-white">
+      <header className="flex flex-col p-2 w-full h-full bg-green-700 text-white">
         <HomeLink />
         <h1 className="text-4xl py-2 font-bold">VUTTR</h1>
         <p className="text-xl py-2">Very useful tools to remember</p>
@@ -184,7 +184,7 @@ const Tools = () => {
         </button>
         <ToolForm showForm={showForm} onFormSubmit={onFormSubmit} />
       </header>
-      <div className="flex flex-col w-full my-4 mx-2">
+      <main className="flex flex-col w-full my-4 mx-2">
         {displayTools.map((tool, i: number) => {
           return (
             <div key={`tool-${i}`} className="flex flex-col border-2 p-2">
@@ -211,7 +211,7 @@ const Tools = () => {
             </div>
           );
         })}
-      </div>
+      </main>
     </div>
   );
 };

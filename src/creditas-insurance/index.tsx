@@ -92,11 +92,11 @@ const Installments = () => {
 
   return (
     <div className="w-full h-full flex flex-col">
-      <header className="bg-green-400 p-2">
+      <header className="bg-green-600 p-2">
         <HomeLink />
         <h1 className="text-4xl text-white font-bold p-2">Creditas</h1>
       </header>
-      <div className="flex flex-col bg-gray-100 w-full h-screen my-2">
+      <main className="flex flex-col bg-gray-100 w-full h-screen my-2">
         <div className="flex flex-row w-full mx-2">
           <div className="w-1/2 flex flex-col">
             <label
@@ -161,71 +161,75 @@ const Installments = () => {
           </div>
         </div>
         <hr className="border-2" />
-        <fieldset className="flex flex-col w-full mx-2 my-4 items-center">
-          <legend className="font-bold text-2xl text-center">Guarantee</legend>
-          <div className="w-full flex flex-row items-center justify-center">
-            <input
-              id="guarantee-amount"
-              aria-label="Enter guarantee"
-              type="number"
-              className="text-2xl text-center p-2 rounded-lg m-2"
-              min={loan.minGuarantee}
-              max={loan.maxGuarantee}
-              value={guarantee}
-              onChange={handleGuaranteeChange}
-            />
-            <input
-              id="guarantee-selector"
-              type="range"
-              aria-label="Set guarantee"
-              className="text-2xl text-center p-2 rounded-lg my-2"
-              min={loan.minGuarantee}
-              max={loan.maxGuarantee}
-              step="100"
-              value={guarantee}
-              onChange={handleGuaranteeChange}
-            />
-          </div>
-        </fieldset>
-        <hr className="border-2" />
-        <fieldset className="flex flex-col w-full mx-2 my-4 items-center">
-          <legend className="font-bold text-2xl text-center">
-            Loan Amount
-          </legend>
-          <div className="w-full flex flex-row items-center justify-center">
-            <input
-              id="loan-amount"
-              aria-label="Enter loan"
-              type="number"
-              className="text-2xl text-center p-2 rounded-lg m-2"
-              min={minLoan}
-              max={maxLoan}
-              value={loanAmt}
-              onChange={handleLoanChange}
-            />
-            <input
-              id="loan-selector"
-              type="range"
-              aria-label="Set loan"
-              className="text-2xl text-center p-2 rounded-lg my-2"
-              min={minLoan}
-              max={maxLoan}
-              step="100"
-              value={loanAmt}
-              onChange={handleLoanChange}
-            />
-          </div>
-        </fieldset>
-        <div className="flex flex-col bg-white rounded shadow-lg border-2 border-green-400 p-2 m-2 items-center justify-centers">
+        <div className="flex flex-col lg:flex-row">
+          <fieldset className="flex flex-col lg:flex-row lg:w-1/2 w-full mx-2 my-4 items-center">
+            <legend className="font-bold text-2xl text-center">
+              Guarantee
+            </legend>
+            <div className="w-full flex flex-row items-center justify-center">
+              <input
+                id="guarantee-amount"
+                aria-label="Enter guarantee"
+                type="number"
+                className="text-2xl text-center p-2 rounded-lg m-2"
+                min={loan.minGuarantee}
+                max={loan.maxGuarantee}
+                value={guarantee}
+                onChange={handleGuaranteeChange}
+              />
+              <input
+                id="guarantee-selector"
+                type="range"
+                aria-label="Set guarantee"
+                className="text-2xl text-center p-2 rounded-lg my-2"
+                min={loan.minGuarantee}
+                max={loan.maxGuarantee}
+                step="100"
+                value={guarantee}
+                onChange={handleGuaranteeChange}
+              />
+            </div>
+          </fieldset>
+          <hr className="border-2" />
+          <fieldset className="flex flex-col lg:flex-row lg:w-1/2 w-full mx-2 my-4 items-center">
+            <legend className="font-bold text-2xl text-center">
+              Loan Amount
+            </legend>
+            <div className="w-full flex flex-row items-center justify-center">
+              <input
+                id="loan-amount"
+                aria-label="Enter loan"
+                type="number"
+                className="text-2xl text-center p-2 rounded-lg m-2"
+                min={minLoan}
+                max={maxLoan}
+                value={loanAmt}
+                onChange={handleLoanChange}
+              />
+              <input
+                id="loan-selector"
+                type="range"
+                aria-label="Set loan"
+                className="text-2xl text-center p-2 rounded-lg my-2"
+                min={minLoan}
+                max={maxLoan}
+                step="100"
+                value={loanAmt}
+                onChange={handleLoanChange}
+              />
+            </div>
+          </fieldset>
+        </div>
+        <div className="flex flex-col bg-white lg:w-2/3 self-center rounded-lg shadow-lg border-2 border-green-400 p-2 m-2 items-center justify-centers">
           <p className="text-xl font-bold p-2">Monthly Installments</p>
-          <p className="text-4xl text-green-400 font-bold p-2">
+          <p className="text-4xl text-green-600 font-bold p-2">
             {installmentAmount.monthlyAmt}
           </p>
           <p className="text-lg p-2">
             Total payments: {installmentAmount.total}
           </p>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

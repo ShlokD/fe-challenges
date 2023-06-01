@@ -60,9 +60,7 @@ const router = createBrowserRouter([
 
 export const Main = (
   <React.Suspense>
-    <main>
-      <RouterProvider router={router} />
-    </main>
+    <RouterProvider router={router} />
   </React.Suspense>
 );
 

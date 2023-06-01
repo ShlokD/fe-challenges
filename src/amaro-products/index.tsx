@@ -139,7 +139,7 @@ const ProductCard: FC<ProductCardProps> = (props) => {
       <p className="font-bold text-sm truncate my-2 md:text-3xl">{name}</p>
       <div className="mt-2">
         {(discount_percentage?.length || 0) > 0 && (
-          <p className="text-gray-300 text-sm line-through md:text-xl">
+          <p className="text-gray-500 text-sm line-through md:text-xl">
             {actual_price}
           </p>
         )}
@@ -156,7 +156,7 @@ const ProductCard: FC<ProductCardProps> = (props) => {
             return null;
           }
           const checked = i === selectedSizeIndex;
-          const id = `${name}-${size.size}`;
+          const id = `${name}-${size.size}-${product_id}`;
           return (
             <div
               key={id}
@@ -241,7 +241,6 @@ const Products = () => {
 
   useEffect(() => {
     window.onbeforeunload = () => {
-      console.log("saving", cart);
       saveCartToLocalStorage(cart);
     };
   }, [cart]);
@@ -290,95 +289,97 @@ const Products = () => {
   }, {} as Record<string, Record<string, number>>);
   return (
     <>
-      <div className="flex flex-col w-full p-2">
-        <div className="flex flex-row justify-between">
-          <HomeLink />
-          <button className="p-4" onClick={() => setShowCart((prev) => !prev)}>
-            <img src="/cart.png" height="32" width="32" alt="View Cart" />
-          </button>
-        </div>
-        <div className="flex flex-col w-full my-4">
-          <h1 className="text-2xl font-bold">Our Collection</h1>
-          <div className="flex flex-row text-xl p-2">
-            <input
-              type="checkbox"
-              id="sale-only"
-              className="w-6"
-              onChange={() => setSaleOnly((prev) => !prev)}
-              checked={saleOnly}
-            />
-            <label htmlFor="sale-only" className="mx-2">
-              On Sale
-            </label>
-          </div>
-          <div className="flex flex-row flex-wrap items-stretch justify-center">
-            {products?.map((product, index) => (
-              <ProductCard
-                saleOnly={saleOnly}
-                key={`product-${index}`}
-                {...product}
-                product_id={index}
-                quantities={cartQuantities[index]}
-                onATC={onATC}
+      <header className="flex flex-row justify-between">
+        <HomeLink />
+        <button className="p-4" onClick={() => setShowCart((prev) => !prev)}>
+          <img src="/cart.png" height="32" width="32" alt="View Cart" />
+        </button>
+      </header>
+      <main className="flex flex-col w-full p-2">
+        <div>
+          <div className="flex flex-col w-full my-4">
+            <h1 className="text-2xl font-bold">Our Collection</h1>
+            <div className="flex flex-row text-xl p-2">
+              <input
+                type="checkbox"
+                id="sale-only"
+                className="w-6"
+                onChange={() => setSaleOnly((prev) => !prev)}
+                checked={saleOnly}
               />
-            ))}
+              <label htmlFor="sale-only" className="mx-2">
+                On Sale
+              </label>
+            </div>
+            <div className="flex flex-row flex-wrap items-stretch justify-center">
+              {products?.map((product, index) => (
+                <ProductCard
+                  saleOnly={saleOnly}
+                  key={`product-${index}`}
+                  {...product}
+                  product_id={index}
+                  quantities={cartQuantities[index]}
+                  onATC={onATC}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        className={`transition:transform w-3/4  min-h-full bg-gray-50 z-10 absolute top-0 right-0 shadow rounded-sm ${
-          showCart ? "" : "hidden"
-        }`}
-        style={{
-          transform: `${showCart ? "translateX(0px)" : "translateX(2000px)"}`,
-          height: document.body.clientHeight,
-        }}
-      >
-        <div className="flex flex-col">
-          <button
-            className="text-4xl p-2 right-0 self-end bg-white rounded-full h-16 w-16 p-2 m-2"
-            onClick={() => setShowCart((prev) => !prev)}
-          >
-            X
-          </button>
-          <p className="font-bold text-3xl p-2">Cart</p>
-          <p className="text-3xl my-2 p-2">R$ {grandTotal.toFixed(2)}</p>{" "}
+        <div
+          className={`transition:transform w-3/4  min-h-full bg-gray-50 z-10 absolute top-0 right-0 shadow rounded-sm ${
+            showCart ? "" : "hidden"
+          }`}
+          style={{
+            transform: `${showCart ? "translateX(0px)" : "translateX(2000px)"}`,
+            height: document.body.clientHeight,
+          }}
+        >
           <div className="flex flex-col">
-            {cart.map((cartItem, idx) => {
-              if (cartItem.qty === 0) {
-                return null;
-              }
-              const product = products[cartItem.id];
-              if (!product) {
-                return null;
-              }
-              const size = product?.sizes?.[cartItem.sizeIndex];
-              return (
-                <div key={`cart-${idx}`}>
-                  <div className="w-full p-2 my-4 flex flex-row items-center">
-                    <img
-                      className="w-1/3"
-                      style={{ minHeight: "50px" }}
-                      src={product.image}
-                    />
-                    <div className="flex flex-col w-2/3 mx-4">
-                      <p className="truncate text-lg md:text-2xl font-bold">
-                        {product.name}
-                      </p>
-                      <p>{size?.size}</p>
-                      <p className="text-lg font-bold md:text-2xl">
-                        {product.actual_price}
-                      </p>
-                      <p className="text-lg font-bold">Qty: {cartItem.qty}</p>
+            <button
+              className="text-4xl p-2 right-0 self-end bg-white rounded-full h-16 w-16 p-2 m-2"
+              onClick={() => setShowCart((prev) => !prev)}
+            >
+              X
+            </button>
+            <p className="font-bold text-3xl p-2">Cart</p>
+            <p className="text-3xl my-2 p-2">R$ {grandTotal.toFixed(2)}</p>{" "}
+            <div className="flex flex-col">
+              {cart.map((cartItem, idx) => {
+                if (cartItem.qty === 0) {
+                  return null;
+                }
+                const product = products[cartItem.id];
+                if (!product) {
+                  return null;
+                }
+                const size = product?.sizes?.[cartItem.sizeIndex];
+                return (
+                  <div key={`cart-${idx}`}>
+                    <div className="w-full p-2 my-4 flex flex-row items-center">
+                      <img
+                        className="w-1/3"
+                        style={{ minHeight: "50px" }}
+                        src={product.image}
+                      />
+                      <div className="flex flex-col w-2/3 mx-4">
+                        <p className="truncate text-lg md:text-2xl font-bold">
+                          {product.name}
+                        </p>
+                        <p>{size?.size}</p>
+                        <p className="text-lg font-bold md:text-2xl">
+                          {product.actual_price}
+                        </p>
+                        <p className="text-lg font-bold">Qty: {cartItem.qty}</p>
+                      </div>
                     </div>
+                    <hr className="border-2" />
                   </div>
-                  <hr className="border-2" />
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 };

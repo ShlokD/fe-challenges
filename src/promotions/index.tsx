@@ -28,7 +28,7 @@ const PromoCard = (props: PromotionType) => {
           <button className="px-4 py-2 bg-gray-100 text-xl rounded">
             {termsAndConditionsButtonText}
           </button>
-          <button className="px-4 py-2 bg-blue-500 text-white text-xl rounded">
+          <button className="px-4 py-2 bg-blue-900 text-white text-xl rounded">
             {joinNowButtonText}
           </button>
         </div>
@@ -41,7 +41,7 @@ const Promotions = () => {
   const [promos, setPromos] = useState<PromotionType[]>([]);
   const [currentFilter, setCurrentFilter] = useState("ALL");
   const activeClasses = "text-gray-900 border-b-4 border-blue-500 font-bold";
-  const inactiveClasses = "text-gray-400";
+  const inactiveClasses = "text-gray-700";
 
   const fetchPromos = async () => {
     const res = await fetch("https://www.mocky.io/v2/5bc3b9cc30000012007586b7");
@@ -59,52 +59,58 @@ const Promotions = () => {
   }
 
   return (
-    <div className="flex flex-col w-full px-3">
-      <HomeLink />
-      <div className="flex flex-row w-full justify-center  py-8">
-        <div className="w-50">
-          <input
-            className="hidden"
-            type="radio"
-            id="all-promos"
-            name="promo-selector"
-            onChange={() => setCurrentFilter("ALL")}
-            checked={currentFilter === ""}
-          />
-          <label
-            htmlFor="all-promos"
-            className={`text-lg p-3 ${
-              currentFilter === "ALL" ? activeClasses : inactiveClasses
-            }`}
-          >
-            All Promotions
-          </label>
+    <>
+      <header>
+        <HomeLink />
+      </header>
+      <main className="flex flex-col w-full px-3">
+        <h1 className="text-center font-bold text-4xl">Promos</h1>
+
+        <div className="flex flex-row w-full justify-center  py-8">
+          <div className="w-50">
+            <input
+              className="hidden"
+              type="radio"
+              id="all-promos"
+              name="promo-selector"
+              onChange={() => setCurrentFilter("ALL")}
+              checked={currentFilter === ""}
+            />
+            <label
+              htmlFor="all-promos"
+              className={`text-lg p-3 ${
+                currentFilter === "ALL" ? activeClasses : inactiveClasses
+              }`}
+            >
+              All Promotions
+            </label>
+          </div>
+          <div className="w-50">
+            <input
+              className="hidden"
+              type="radio"
+              id="new-promos"
+              name="promo-selector"
+              onChange={() => setCurrentFilter("NEW")}
+              checked={currentFilter === ""}
+            />
+            <label
+              htmlFor="new-promos"
+              className={`text-lg p-3 ${
+                currentFilter === "NEW" ? activeClasses : inactiveClasses
+              }`}
+            >
+              New Customers
+            </label>
+          </div>
         </div>
-        <div className="w-50">
-          <input
-            className="hidden"
-            type="radio"
-            id="new-promos"
-            name="promo-selector"
-            onChange={() => setCurrentFilter("NEW")}
-            checked={currentFilter === ""}
-          />
-          <label
-            htmlFor="new-promos"
-            className={`text-lg p-3 ${
-              currentFilter === "NEW" ? activeClasses : inactiveClasses
-            }`}
-          >
-            New Customers
-          </label>
+        <div className="flex flex-col w-full items-center">
+          {displayPromos?.map((promo) => {
+            return <PromoCard {...promo} key={promo.id} />;
+          })}
         </div>
-      </div>
-      <div className="flex flex-col w-full items-center">
-        {displayPromos?.map((promo) => {
-          return <PromoCard {...promo} key={promo.id} />;
-        })}
-      </div>
-    </div>
+      </main>
+    </>
   );
 };
 export default Promotions;

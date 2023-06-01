@@ -31,7 +31,7 @@ const InterestRate = () => {
         <HomeLink />
         <h1 className="text-4xl py-2 font-bold">Interest Calculator</h1>
       </header>
-      <div className="flex flex-col w-full justify-center items-center my-4">
+      <main className="flex flex-col w-full justify-center items-center my-4">
         <div className="flex flex-col items-center justify-center w-full my-2 p-2">
           <label className="text-lg font-bold mx-2" htmlFor="amount">
             Amount
@@ -104,7 +104,7 @@ const InterestRate = () => {
             <p>Final Amount: {interestAmount.toFixed(2)}</p>
           </div>
         )}
-      </div>
+      </main>
     </div>
   );
 };

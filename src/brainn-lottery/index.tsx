@@ -39,47 +39,55 @@ const Lottery = () => {
   const bgColor = BG_COLORS[selectedLotto];
 
   return (
-    <div className="flex flex-col w-full h-full h-screen bg-gray-100">
-      <HomeLink />
-      <div className="flex flex-col w-full lg:flex-row lg:h-full my-2 z-10 items-center lg:justify-center">
-        <div
-          className={`w-full lg:w-1/2 lg:h-full box p-2 overflow-x-hidden flex items-center justify-center ${bgColor}`}
-        >
-          <select
-            name="lotto-select"
-            aria-label="Select a lotto"
-            onChange={(ev) =>
-              setSelectedLotto((ev?.target as HTMLSelectElement)?.value)
-            }
-            value={selectedLotto}
-            className="p-4  text-center"
+    <>
+      <header>
+        <HomeLink />
+      </header>
+      <main className="flex flex-col w-full h-full h-screen bg-gray-100">
+        <h1 className="self-center font-bold text-4xl bg-white">
+          Today's Lotto
+        </h1>
+
+        <div className="flex flex-col w-full lg:flex-row lg:h-full my-2 z-10 items-center lg:justify-center">
+          <div
+            className={`w-full lg:w-1/2 lg:h-full box p-2 overflow-x-hidden flex items-center justify-center ${bgColor}`}
           >
-            {LOTTOS.map((lotto) => {
+            <select
+              name="lotto-select"
+              aria-label="Select a lotto"
+              onChange={(ev) =>
+                setSelectedLotto((ev?.target as HTMLSelectElement)?.value)
+              }
+              value={selectedLotto}
+              className="p-4  text-center"
+            >
+              {LOTTOS.map((lotto) => {
+                return (
+                  <option key={lotto} value={lotto}>
+                    {lotto}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div
+            data-testid="lottery-numbers"
+            className="h-50 z-10 lg:w-1/2 lg:h-full rounded-t-full flex flex-row flex-wrap justify-center my-16"
+          >
+            {numbers.map((n, i) => {
               return (
-                <option key={lotto} value={lotto}>
-                  {lotto}
-                </option>
+                <div
+                  key={`num-${i}`}
+                  className="bg-white m-3 p-6 text-4xl lg:p-3 lg:text-2xl font-bold rounded-full lg:self-center"
+                >
+                  {n > 9 ? n : `0${n}`}
+                </div>
               );
             })}
-          </select>
+          </div>
         </div>
-        <div
-          data-testid="lottery-numbers"
-          className="h-50 z-10 lg:w-1/2 lg:h-full rounded-t-full flex flex-row flex-wrap justify-center my-16"
-        >
-          {numbers.map((n, i) => {
-            return (
-              <div
-                key={`num-${i}`}
-                className="bg-white m-3 p-6 text-4xl lg:p-3 lg:text-2xl font-bold rounded-full lg:self-center"
-              >
-                {n > 9 ? n : `0${n}`}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
+      </main>
+    </>
   );
 };
 
