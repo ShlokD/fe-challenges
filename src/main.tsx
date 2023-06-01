@@ -13,6 +13,7 @@ const ApikiBlog = React.lazy(() => import("./apiki-blog"));
 const UserProfile = React.lazy(() => import("./b2w-marketplace"));
 const Tools = React.lazy(() => import("./bossabox-tools"));
 const InterestRate = React.lazy(() => import("./ciclic-interest"));
+const Installments = React.lazy(() => import("./creditas-insurance"));
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: "/ciclic-interest-rate",
     element: <InterestRate />,
+  },
+  {
+    path: "/creditas-insurance",
+    element: <Installments />,
   },
 ]);
 

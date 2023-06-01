@@ -97,7 +97,7 @@ const Internal: FC<InternalProps> = (props) => {
   );
 
   const fetchBlog = async () => {
-    window.scrollTo(0, 0);
+    window?.scrollTo?.(0, 0);
 
     if (!BLOG_CACHE[slug]) {
       const url = `https://blog.apiki.com/wp-json/wp/v2/posts?_embed&slug=${slug}`;

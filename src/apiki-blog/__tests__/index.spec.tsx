@@ -5,6 +5,7 @@ import { describe, it, vi } from "vitest";
 import ApikiBlog from "..";
 
 global.fetch = vi.fn();
+global.window.scrollTo = vi.fn();
 
 const data = [
   {
