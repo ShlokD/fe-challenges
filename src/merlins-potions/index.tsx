@@ -186,6 +186,7 @@ const PotionsStore = () => {
   const [showModal, setShowModal] = useState(false);
   const [cart, setCart] = useState<Record<number, Potion>>({});
   const [showCart, setShowCart] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   const fetchPotions = async () => {
     const mod = await import("./potions.json");
@@ -227,9 +228,10 @@ const PotionsStore = () => {
     <div className="flex flex-col w-full">
       <header className="flex flex-row items-center justify-evenly lg:justify-center lg:gap-6 py-4 px-2">
         <HomeLink />
-        <button>
+        <button className="lg:hidden block" onClick={() => setShowMenu(true)}>
           <img src="/hamburger.png" height={30} width={30} alt="Open Menus" />
         </button>
+
         <div className="flex flex-col">
           <h1 className="text-2xl font-bold text-orange-500 text-center">
             Merlin's Potions
@@ -252,6 +254,46 @@ const PotionsStore = () => {
         </div>
       </header>
       <main className="flex flex-col w-full ">
+        <nav
+          className={`${
+            showMenu ? "flex flex-col" : "hidden lg:flex flex-col"
+          } w-full`}
+        >
+          <div className="flex flex-row my-2 items-center justify-center">
+            <button
+              className="p-2 text-purple-900 font-bold lg:hidden"
+              aria-label="Close Menu"
+              onClick={() => setShowMenu(false)}
+            >
+              X
+            </button>
+            <input
+              aria-label="Search our stock"
+              placeholder="Search our stock"
+              className="border-2 border-black p-2"
+            ></input>
+          </div>
+          <div className="flex flex-col lg:flex-row gap-2 justify-evenly  bg-purple-800 hover:bg-purple-900- text-white">
+            <button className="border-white border-b-2 bg-purple-800 hover:bg-purple-900 lg:border-0 p-4">
+              Potions
+            </button>
+            <button className="border-white border-b-2 bg-purple-800 lg:border-0 hover:bg-purple-900 p-4">
+              Ingredients
+            </button>
+            <button className="border-white border-b-2 bg-purple-800 lg:border-0 hover:bg-purple-900 p-4">
+              Books
+            </button>
+            <button className="border-white border-b-2 bg-purple-800 lg:border-0 hover:bg-purple-900 p-4">
+              Supplies
+            </button>
+            <button className="border-white border-b-2 bg-purple-800 lg:border-0 hover:bg-purple-900 p-4">
+              Charms
+            </button>
+            <button className="border-white border-b-2 bg-purple-800 lg:border-0 hover:bg-purple-900 p-4">
+              Clearance!
+            </button>
+          </div>
+        </nav>
         <p className="bg-gray-300 p-4 text-center italic">
           Free shipping on orders above $50
         </p>
