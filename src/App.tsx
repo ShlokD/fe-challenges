@@ -42,6 +42,9 @@ function App() {
         <li className="text-2xl w-10/12 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/cubo-graph`}>Cubo - Participation Graph</Link>
         </li>
+        <li className="text-2xl w-10/12 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/merlins-potions`}>ENext - Merlin's Potions</Link>
+        </li>
       </ul>
     </div>
   );
