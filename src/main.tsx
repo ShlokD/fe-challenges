@@ -16,6 +16,7 @@ const InterestRate = React.lazy(() => import("./ciclic-interest"));
 const Installments = React.lazy(() => import("./creditas-insurance"));
 const ParticipationChart = React.lazy(() => import("./cubo-graph"));
 const PotionsStore = React.lazy(() => import("./merlins-potions"));
+const StolenBikes = React.lazy(() => import("./stolen-bike"));
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
   {
     path: "/merlins-potions",
     element: <PotionsStore />,
+  },
+  {
+    path: "/stolen-bikes",
+    element: <StolenBikes />,
   },
 ]);
 
