@@ -187,6 +187,8 @@ const PotionsStore = () => {
   const [cart, setCart] = useState<Record<number, Potion>>({});
   const [showCart, setShowCart] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [email, setEmail] = useState("");
+  const [search, setSearch] = useState("");
 
   const fetchPotions = async () => {
     const mod = await import("./potions.json");
@@ -199,6 +201,10 @@ const PotionsStore = () => {
   const handlePotionClick = (index: number) => {
     setSelectedPotionIndex(index);
     setShowModal(true);
+  };
+
+  const handleEmailSubmitClick = () => {
+    setEmail("");
   };
 
   const handleAddToCart = ({ id, qty }: { id: number; qty: number }) => {
@@ -221,6 +227,13 @@ const PotionsStore = () => {
 
   const selectedPotion =
     selectedPotionIndex >= 0 ? potions[selectedPotionIndex] : null;
+
+  let displayPotions = potions;
+  if (search) {
+    displayPotions = displayPotions.filter((p) =>
+      p.name.toLowerCase().includes(search.toLowerCase()),
+    );
+  }
 
   const cartItems = Object.values(cart);
 
@@ -271,6 +284,10 @@ const PotionsStore = () => {
               aria-label="Search our stock"
               placeholder="Search our stock"
               className="border-2 border-black p-2"
+              onChange={(ev) =>
+                setSearch((ev?.target as HTMLInputElement)?.value)
+              }
+              value={search}
             ></input>
           </div>
           <div className="flex flex-col lg:flex-row gap-2 justify-evenly  bg-purple-800 hover:bg-purple-900- text-white">
@@ -301,7 +318,7 @@ const PotionsStore = () => {
         <h2 className="text-center p-2 font-bold text-4xl">Potions</h2>
 
         <div className="flex flex-row flex-wrap items-center justify-center my-4">
-          {potions?.map((potion, i) => {
+          {displayPotions?.map((potion, i) => {
             return (
               <button
                 key={`potion-${i}`}
@@ -341,8 +358,17 @@ const PotionsStore = () => {
               className="border-2 p-2 border-black"
               placeholder="Enter your email"
               aria-label="Enter your email"
+              value={email}
+              onChange={(ev) =>
+                setEmail((ev?.target as HTMLInputElement)?.value)
+              }
             ></input>
-            <button className="text-white bg-orange-400 p-4">SUBMIT</button>
+            <button
+              className="text-white bg-orange-400 p-4"
+              onClick={handleEmailSubmitClick}
+            >
+              SUBMIT
+            </button>
           </div>
         </div>
         <p className="text-md p-4">
