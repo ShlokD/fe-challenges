@@ -48,6 +48,9 @@ function App() {
         <li className="text-2xl w-10/12 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/stolen-bikes`}>Joincom - Stolen Bike Index</Link>
         </li>
+        <li className="text-2xl w-10/12 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/donations-widget`}>Loktra - Donations Widget</Link>
+        </li>
       </ul>
     </div>
   );
