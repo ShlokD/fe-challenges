@@ -158,6 +158,9 @@ const Tools = () => {
         <div className="flex flex-row justify-center items-center">
           <input
             placeholder="Search..."
+            type="search"
+            autoComplete="off"
+            name="q"
             className="px-2 py-2 my-2 text-black"
             aria-label="Search for tools"
             value={search}

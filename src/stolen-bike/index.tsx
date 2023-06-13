@@ -166,6 +166,9 @@ const StolenBikes = () => {
           <input
             className="border-2 p-2"
             aria-label="Search description"
+            name="q"
+            type="search"
+            autoComplete="off"
             placeholder="Search bikes"
             value={searchQuery}
             max={today}

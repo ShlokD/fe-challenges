@@ -18,7 +18,7 @@ describe("<Tools />", () => {
     expect(screen.getByText("test")).toBeDefined();
     expect(screen.getByText("tool")).toBeDefined();
     expect(screen.getByText("wow")).toBeDefined();
-    const search = screen.getByRole("textbox", { name: /search for tools/i });
+    const search = screen.getByRole("searchbox", { name: /search for tools/i });
     const checkbox = screen.getByRole("checkbox", {
       name: /search tags only/i,
     });
@@ -42,7 +42,7 @@ describe("<Tools />", () => {
       </MemoryRouter>,
     );
     expect(
-      screen.getByRole("textbox", { name: /search for tools/i }),
+      screen.getByRole("searchbox", { name: /search for tools/i }),
     ).toBeDefined();
     expect(
       screen.getByRole("checkbox", { name: /search tags only/i }),

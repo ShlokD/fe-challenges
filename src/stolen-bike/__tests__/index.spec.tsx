@@ -81,7 +81,7 @@ describe("<StolenBikes />", () => {
     expect(
       await screen.findByText(/2018 Specialized Tarmac Expert SL6/i),
     ).toBeDefined();
-    expect(screen.getByRole("textbox", { name: /search/i })).toBeDefined();
+    expect(screen.getByRole("searchbox", { name: /search/i })).toBeDefined();
     expect(screen.getByText("From")).toBeDefined();
     expect(screen.getByText("To")).toBeDefined();
     expect(screen.getByRole("button", { name: /find/i })).toBeDefined();

@@ -281,6 +281,9 @@ const PotionsStore = () => {
               X
             </button>
             <input
+              type="search"
+              name="q"
+              autoComplete="off"
               aria-label="Search our stock"
               placeholder="Search our stock"
               className="border-2 border-black p-2"
