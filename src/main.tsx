@@ -19,6 +19,7 @@ const PotionsStore = React.lazy(() => import("./merlins-potions"));
 const StolenBikes = React.lazy(() => import("./stolen-bike"));
 const DonationsWidget = React.lazy(() => import("./loktra-donations"));
 const TarotCards = React.lazy(() => import("./tarot-cards"));
+const AudioPlayer = React.lazy(() => import("./audio-player"));
 
 const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
   {
     path: "/tarot-cards",
     element: <TarotCards />,
+  },
+  {
+    path: "/audio-player",
+    element: <AudioPlayer />,
   },
 ]);
 
