@@ -94,6 +94,7 @@ const DonationsWidget = () => {
           Only ${1000 - total} still needed for this project
         </div>
         <progress
+          id="loktra-progress"
           value={total}
           className="border-t-2 border-r-2 border-l-2 border-black w-2/3 h-8 flex justify-center bg-white"
           max="1000"
