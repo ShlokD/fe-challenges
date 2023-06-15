@@ -20,6 +20,7 @@ const StolenBikes = React.lazy(() => import("./stolen-bike"));
 const DonationsWidget = React.lazy(() => import("./loktra-donations"));
 const TarotCards = React.lazy(() => import("./tarot-cards"));
 const AudioPlayer = React.lazy(() => import("./audio-player"));
+const MultiCounter = React.lazy(() => import("./multi-counter"));
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
   {
     path: "/audio-player",
     element: <AudioPlayer />,
+  },
+  {
+    path: "/multi-counter",
+    element: <MultiCounter />,
   },
 ]);
 
