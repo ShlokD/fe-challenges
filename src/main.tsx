@@ -23,6 +23,7 @@ const AudioPlayer = React.lazy(() => import("./audio-player"));
 const MultiCounter = React.lazy(() => import("./multi-counter"));
 const TodoList = React.lazy(() => import("./todo-list"));
 const GymSearch = React.lazy(() => import("./gym-search"));
+const AccountWizard = React.lazy(() => import("./account-wizard"));
 
 const router = createBrowserRouter([
   {
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
   {
     path: "/gym-search",
     element: <GymSearch />,
+  },
+  {
+    path: "/account-wizard",
+    element: <AccountWizard />,
   },
 ]);
 
