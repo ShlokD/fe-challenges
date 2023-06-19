@@ -77,7 +77,9 @@ const TodoList = () => {
   return (
     <div className="flex flex-col w-screen">
       <header className="p-4 bg-blue-900 flex flex-row gap-2 justify-center items-center">
-        <HomeLink />
+        <div className="bg-white">
+          <HomeLink />
+        </div>
         <h1 className="font-bold text-2xl text-white">ToDo List</h1>
       </header>
       <main className="flex flex-col w-screen justify-center">

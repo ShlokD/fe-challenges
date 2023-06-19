@@ -22,6 +22,7 @@ const TarotCards = React.lazy(() => import("./tarot-cards"));
 const AudioPlayer = React.lazy(() => import("./audio-player"));
 const MultiCounter = React.lazy(() => import("./multi-counter"));
 const TodoList = React.lazy(() => import("./todo-list"));
+const GymSearch = React.lazy(() => import("./gym-search"));
 
 const router = createBrowserRouter([
   {
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
   {
     path: "/todo-list",
     element: <TodoList />,
+  },
+  {
+    path: "/gym-search",
+    element: <GymSearch />,
   },
 ]);
 
