@@ -24,6 +24,7 @@ const MultiCounter = React.lazy(() => import("./multi-counter"));
 const TodoList = React.lazy(() => import("./todo-list"));
 const GymSearch = React.lazy(() => import("./gym-search"));
 const AccountWizard = React.lazy(() => import("./account-wizard"));
+const CarCarousel = React.lazy(() => import("./car-carousel"));
 
 const router = createBrowserRouter([
   {
@@ -105,6 +106,10 @@ const router = createBrowserRouter([
   {
     path: "/account-wizard",
     element: <AccountWizard />,
+  },
+  {
+    path: "/car-carousel",
+    element: <CarCarousel />,
   },
 ]);
 
