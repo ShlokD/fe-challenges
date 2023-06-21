@@ -25,6 +25,8 @@ const TodoList = React.lazy(() => import("./todo-list"));
 const GymSearch = React.lazy(() => import("./gym-search"));
 const AccountWizard = React.lazy(() => import("./account-wizard"));
 const CarCarousel = React.lazy(() => import("./car-carousel"));
+const SerializeState = React.lazy(() => import("./serialize-state"));
+const MasonryLayout = React.lazy(() => import("./masonry-layout"));
 
 const router = createBrowserRouter([
   {
@@ -110,6 +112,14 @@ const router = createBrowserRouter([
   {
     path: "/car-carousel",
     element: <CarCarousel />,
+  },
+  {
+    path: "/serialize-state",
+    element: <SerializeState />,
+  },
+  {
+    path: "/masonry-layout",
+    element: <MasonryLayout />,
   },
 ]);
 
