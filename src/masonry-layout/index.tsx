@@ -27,7 +27,7 @@ const MasonryLayout = () => {
       </header>
       <main className="flex flex-col w-full">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 my-4 p-2 lg:w-1/2 self-center">
-          <div className="grid gap-4">
+          <div className="grid gap-2">
             {photos.slice(0, 24)?.map((photo, index) => {
               return (
                 <div key={`photo-${index}`}>
@@ -42,7 +42,7 @@ const MasonryLayout = () => {
             })}
           </div>
 
-          <div className="grid gap-4">
+          <div className="grid gap-2">
             {photos?.slice(24, 48)?.map((photo, index) => {
               return (
                 <div key={`photo-${index}`}>
@@ -57,7 +57,7 @@ const MasonryLayout = () => {
             })}
           </div>
 
-          <div className="grid gap-4">
+          <div className="grid gap-2">
             {photos.slice(48, 72)?.map((photo, index) => {
               return (
                 <div key={`photo-${index}`}>
@@ -72,7 +72,7 @@ const MasonryLayout = () => {
             })}
           </div>
 
-          <div className="grid gap-4">
+          <div className="grid gap-2">
             {photos.slice(73, photos.length)?.map((photo, index) => {
               return (
                 <div key={`photo-${index}`}>
