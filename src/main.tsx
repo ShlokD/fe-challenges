@@ -27,6 +27,7 @@ const AccountWizard = React.lazy(() => import("./account-wizard"));
 const CarCarousel = React.lazy(() => import("./car-carousel"));
 const SerializeState = React.lazy(() => import("./serialize-state"));
 const MasonryLayout = React.lazy(() => import("./masonry-layout"));
+const ColorGame = React.lazy(() => import("./color-game"));
 
 const router = createBrowserRouter([
   {
@@ -120,6 +121,10 @@ const router = createBrowserRouter([
   {
     path: "/masonry-layout",
     element: <MasonryLayout />,
+  },
+  {
+    path: "/color-game",
+    element: <ColorGame />,
   },
 ]);
 
