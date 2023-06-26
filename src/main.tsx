@@ -28,7 +28,7 @@ const CarCarousel = React.lazy(() => import("./car-carousel"));
 const SerializeState = React.lazy(() => import("./serialize-state"));
 const MasonryLayout = React.lazy(() => import("./masonry-layout"));
 const ColorGame = React.lazy(() => import("./color-game"));
-
+const TurtleGraphics = React.lazy(() => import("./turtle-graphics"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -125,6 +125,10 @@ const router = createBrowserRouter([
   {
     path: "/color-game",
     element: <ColorGame />,
+  },
+  {
+    path: "/turtle-graphics",
+    element: <TurtleGraphics />,
   },
 ]);
 
