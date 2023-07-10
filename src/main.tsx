@@ -29,6 +29,8 @@ const SerializeState = React.lazy(() => import("./serialize-state"));
 const MasonryLayout = React.lazy(() => import("./masonry-layout"));
 const ColorGame = React.lazy(() => import("./color-game"));
 const TurtleGraphics = React.lazy(() => import("./turtle-graphics"));
+const XRKeyboard = React.lazy(() => import("./xr-keyboard"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -129,6 +131,10 @@ const router = createBrowserRouter([
   {
     path: "/turtle-graphics",
     element: <TurtleGraphics />,
+  },
+  {
+    path: "/xr-keyboard",
+    element: <XRKeyboard />,
   },
 ]);
 

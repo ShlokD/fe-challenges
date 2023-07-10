@@ -46,3 +46,22 @@ body {
 #todo-progress::-webkit-progress-value {
   background-color: green;
 }
+
+.blink {
+  animation: blinking;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
