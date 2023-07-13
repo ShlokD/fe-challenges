@@ -30,6 +30,7 @@ const MasonryLayout = React.lazy(() => import("./masonry-layout"));
 const ColorGame = React.lazy(() => import("./color-game"));
 const TurtleGraphics = React.lazy(() => import("./turtle-graphics"));
 const XRKeyboard = React.lazy(() => import("./xr-keyboard"));
+const MoonpayCurrencies = React.lazy(() => import("./moonpay-currencies"));
 
 const router = createBrowserRouter([
   {
@@ -135,6 +136,10 @@ const router = createBrowserRouter([
   {
     path: "/xr-keyboard",
     element: <XRKeyboard />,
+  },
+  {
+    path: "/moonpay-currency",
+    element: <MoonpayCurrencies />,
   },
 ]);
 
