@@ -16,10 +16,11 @@ const MicrowaveApp = () => {
   const interval = useRef<number | null>(null);
 
   const handleStart = () => {
-    if (!interval) return;
-
+    if (seconds === 0) {
+      return;
+    }
     setMState("START");
-    interval.current = global.window.setInterval(
+    interval.current = window.setInterval(
       () =>
         setSeconds((prev) => {
           if (prev === 0) {
@@ -56,28 +57,28 @@ const MicrowaveApp = () => {
         <HomeLink />
         <h1 className="font-bold text-2xl">Microwave</h1>
       </header>
-      <main className="flex flex-row w-11/12 gap-2 justify-between items-stretch h-full my-8">
-        <div className="bg-blue-400 w-3/4 h-96 ml-4 rounded-tl-3xl rounded-bl-3xl flex items-center justify-center">
-          <div className="w-11/12 h-80 bg-gray-100 shadow-inner border-2 border-blue-900 rounded-3xl flex items-center justify-center">
+      <main className="flex flex-row w-11/12 gap-2 lg:justify-center justify-between items-stretch h-full my-8">
+        <div className="bg-blue-400 w-2/3 lg:w-5/12 h-96 ml-4 rounded-tl-3xl rounded-bl-3xl flex items-center justify-center">
+          <div className="w-11/12 h-80 bg-gray-100  shadow-inner border-2 border-blue-900 rounded-3xl flex items-center justify-center">
             {mState === "START" && (
               <div className="p-16 bg-orange-300 rounded-full animate-ping"></div>
             )}
           </div>
         </div>
-        <div className="bg-blue-400 w-1/4 h-96 flex flex-col rounded-tr-3xl rounded-br-3xl">
-          <div className="w-1/2 self-center my-2 text-center text-2xl p-2 rounded-lg bg-blue-100">
+        <div className="bg-blue-400 w-1/3 lg:w-3/12 h-96 flex flex-col rounded-tr-3xl rounded-br-3xl">
+          <div className="w-2/3 self-center my-2 text-center text-2xl p-2 rounded-lg bg-blue-100">
             {formatTime(seconds)}
           </div>
-          <div className="flex flex-row gap-2 justify-center">
+          <div className="flex md:flex-row flex-col md:my-4 my-2 gap-2 items-center md:justify-center">
             <button
               onClick={() => setSeconds((prev) => prev + 10)}
-              className="p-2 bg-orange-300 rounded-xl text-white font-bold my-4"
+              className="p-2 bg-orange-300 rounded-xl text-white font-bold w-2/3 md:w-1/2 md:ml-2"
             >
               +10s
             </button>
             <button
               onClick={() => setSeconds((prev) => prev + 60)}
-              className="p-2 bg-orange-300 rounded-xl text-white font-bold my-4"
+              className="p-2 bg-orange-300 rounded-xl text-white font-bold w-2/3 md:w-1/2 md:mr-2"
             >
               +60s
             </button>
@@ -85,19 +86,19 @@ const MicrowaveApp = () => {
           <div className="flex flex-col gap-2 justify-center items-center">
             <button
               onClick={handleStart}
-              className="p-2 rounded-xl bg-blue-300 w-11/12 border-2 border-blue-900 hover:bg-blue-400 font-bold"
+              className="p-2 lg:w-1/2 rounded-xl bg-blue-300 w-11/12 border-2 border-blue-900 hover:bg-blue-400 font-bold"
             >
               Start
             </button>
             <button
               onClick={handleStop}
-              className="p-2 rounded-xl bg-blue-300 w-11/12 border-2 border-blue-900 hover:bg-blue-400 font-bold"
+              className="p-2 lg:w-1/2 rounded-xl bg-blue-300 w-11/12 border-2 border-blue-900 hover:bg-blue-400 font-bold"
             >
               Stop
             </button>
             <button
               onClick={handleReset}
-              className="p-2 rounded-xl bg-blue-300 w-11/12 border-2 border-blue-900 hover:bg-blue-400 font-bold"
+              className="p-2 lg:w-1/2 rounded-xl bg-blue-300 w-11/12 border-2 border-blue-900 hover:bg-blue-400 font-bold"
             >
               Reset
             </button>
