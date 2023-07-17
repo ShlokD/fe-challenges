@@ -31,6 +31,7 @@ const ColorGame = React.lazy(() => import("./color-game"));
 const TurtleGraphics = React.lazy(() => import("./turtle-graphics"));
 const XRKeyboard = React.lazy(() => import("./xr-keyboard"));
 const MoonpayCurrencies = React.lazy(() => import("./moonpay-currencies"));
+const MicrowaveApp = React.lazy(() => import("./microwave-app"));
 
 const router = createBrowserRouter([
   {
@@ -140,6 +141,10 @@ const router = createBrowserRouter([
   {
     path: "/moonpay-currency",
     element: <MoonpayCurrencies />,
+  },
+  {
+    path: "/microwave-app",
+    element: <MicrowaveApp />,
   },
 ]);
 
