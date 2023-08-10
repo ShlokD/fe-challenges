@@ -108,7 +108,7 @@ const ProseRenderer = () => {
         <HomeLink />
         <h1 className="font-bold text-2xl">Prose Renderer</h1>
       </header>
-      <div className="flex flex-col w-full p-2">
+      <main className="flex flex-col w-full p-2">
         <Prose>
           <h2 className="text-xl font-bold">The Adventures of Don Quixote</h2>
           <p className="p-2">Miguel De Cervantes</p>
@@ -146,7 +146,7 @@ const ProseRenderer = () => {
             partly in Castile.
           </p>
         </Prose>
-      </div>
+      </main>
     </div>
   );
 };
