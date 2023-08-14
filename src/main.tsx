@@ -34,6 +34,8 @@ const MoonpayCurrencies = React.lazy(() => import("./moonpay-currencies"));
 const MicrowaveApp = React.lazy(() => import("./microwave-app"));
 const ProseRenderer = React.lazy(() => import("./prose-renderer"));
 const GroceryBingo = React.lazy(() => import("./grocery-bingo"));
+const WishlistApp = React.lazy(() => import("./wishlist-app"));
+const Calculator = React.lazy(() => import("./calculator"));
 
 const router = createBrowserRouter([
   {
@@ -155,6 +157,14 @@ const router = createBrowserRouter([
   {
     path: "/grocery-bingo",
     element: <GroceryBingo />,
+  },
+  {
+    path: "/wishlist-app",
+    element: <WishlistApp />,
+  },
+  {
+    path: "/calculator",
+    element: <Calculator />,
   },
 ]);
 
