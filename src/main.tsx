@@ -2,8 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
+
+
 import App from "./App.tsx";
 import "./index.css";
+
 
 const Betting = React.lazy(() => import("./betting"));
 const Promotions = React.lazy(() => import("./promotions"));
@@ -36,6 +39,7 @@ const ProseRenderer = React.lazy(() => import("./prose-renderer"));
 const GroceryBingo = React.lazy(() => import("./grocery-bingo"));
 const WishlistApp = React.lazy(() => import("./wishlist-app"));
 const Calculator = React.lazy(() => import("./calculator"));
+const VoiceModulator = React.lazy(() => import("./voice-modulator"))
 
 const router = createBrowserRouter([
   {
@@ -165,6 +169,10 @@ const router = createBrowserRouter([
   {
     path: "/calculator",
     element: <Calculator />,
+  },
+  {
+    path: "/voice-modulator",
+    element: <VoiceModulator />,
   },
 ]);
 
