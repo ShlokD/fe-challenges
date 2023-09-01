@@ -1,6 +1,6 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { describe, it, vi } from "vitest";
+import { describe, it } from "vitest";
 
 import Calculator from "..";
 
@@ -12,8 +12,8 @@ beforeEach(() => {
   );
 });
 
-describe("<GroceryBingo />", () => {
-  it("should render calculator", async () => {
+describe("<Calculator />", () => {
+  it("should render Calculator", async () => {
     const ac = await screen.findByRole("button", {
       name: /AC/i,
     });
