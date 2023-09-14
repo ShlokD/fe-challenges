@@ -38,6 +38,8 @@ const WishlistApp = React.lazy(() => import("./wishlist-app"));
 const Calculator = React.lazy(() => import("./calculator"));
 const VoiceModulator = React.lazy(() => import("./voice-modulator"));
 const Randomizer = React.lazy(() => import("./randomizer"));
+const Patatap = React.lazy(() => import("./patatap-clone"));
+const ProductComparison = React.lazy(() => import("./product-comparison"));
 
 const router = createBrowserRouter([
   {
@@ -175,6 +177,14 @@ const router = createBrowserRouter([
   {
     path: "/randomizer",
     element: <Randomizer />,
+  },
+  {
+    path: "/patatap-clone",
+    element: <Patatap />,
+  },
+  {
+    path: "/product-comparison",
+    element: <ProductComparison />,
   },
 ]);
 

@@ -105,3 +105,16 @@ body {
     transform: rotateZ(360deg);
   }
 }
+
+.animate-button:focus {
+  animation: pulse-color 0.2s linear infinite;
+}
+
+@keyframes pulse-color {
+  0% {
+    background-color: gray;
+  }
+  100% {
+    background-color: black;
+  }
+}
