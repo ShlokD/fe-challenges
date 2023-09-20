@@ -40,7 +40,8 @@ const VoiceModulator = React.lazy(() => import("./voice-modulator"));
 const Randomizer = React.lazy(() => import("./randomizer"));
 const Patatap = React.lazy(() => import("./patatap-clone"));
 const ProductComparison = React.lazy(() => import("./product-comparison"));
-
+const LiftSimulator = React.lazy(() => import("./lift-simulator"));
+const Hangman = React.lazy(() => import("./hangman"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -185,6 +186,14 @@ const router = createBrowserRouter([
   {
     path: "/product-comparison",
     element: <ProductComparison />,
+  },
+  {
+    path: "/lift-simulator",
+    element: <LiftSimulator />,
+  },
+  {
+    path: "/hangman",
+    element: <Hangman />,
   },
 ]);
 
