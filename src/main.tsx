@@ -42,6 +42,7 @@ const Patatap = React.lazy(() => import("./patatap-clone"));
 const ProductComparison = React.lazy(() => import("./product-comparison"));
 const LiftSimulator = React.lazy(() => import("./lift-simulator"));
 const Hangman = React.lazy(() => import("./hangman"));
+const Stopwatch = React.lazy(() => import("./stopwatch"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -194,6 +195,10 @@ const router = createBrowserRouter([
   {
     path: "/hangman",
     element: <Hangman />,
+  },
+  {
+    path: "/stopwatch",
+    element: <Stopwatch />,
   },
 ]);
 
