@@ -43,6 +43,8 @@ const ProductComparison = React.lazy(() => import("./product-comparison"));
 const LiftSimulator = React.lazy(() => import("./lift-simulator"));
 const Hangman = React.lazy(() => import("./hangman"));
 const Stopwatch = React.lazy(() => import("./stopwatch"));
+const SmartFilters = React.lazy(() => import("./smart-filters"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -199,6 +201,10 @@ const router = createBrowserRouter([
   {
     path: "/stopwatch",
     element: <Stopwatch />,
+  },
+  {
+    path: "/smart-filters",
+    element: <SmartFilters />,
   },
 ]);
 
