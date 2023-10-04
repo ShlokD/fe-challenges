@@ -47,6 +47,7 @@ const SmartFilters = React.lazy(() => import("./smart-filters"));
 const PasswordStrength = React.lazy(() => import("./password-strength"));
 const VideoMenu = React.lazy(() => import("./video-menu"));
 const WhackHog = React.lazy(() => import("./whack-hog"));
+const Puzzle15 = React.lazy(() => import("./puzzle-15"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -219,6 +220,10 @@ const router = createBrowserRouter([
   {
     path: "/whack-hog",
     element: <WhackHog />,
+  },
+  {
+    path: "/puzzle-15",
+    element: <Puzzle15 />,
   },
 ]);
 
