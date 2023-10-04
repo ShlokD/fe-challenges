@@ -46,6 +46,7 @@ const Stopwatch = React.lazy(() => import("./stopwatch"));
 const SmartFilters = React.lazy(() => import("./smart-filters"));
 const PasswordStrength = React.lazy(() => import("./password-strength"));
 const VideoMenu = React.lazy(() => import("./video-menu"));
+const WhackHog = React.lazy(() => import("./whack-hog"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -214,6 +215,10 @@ const router = createBrowserRouter([
   {
     path: "/video-menu",
     element: <VideoMenu />,
+  },
+  {
+    path: "/whack-hog",
+    element: <WhackHog />,
   },
 ]);
 
