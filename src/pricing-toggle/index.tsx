@@ -75,6 +75,7 @@ const PricingToggle = () => {
         <div className="flex items-center gap-2 self-center">
           {Object.keys(PLANS).map((planKey, i) => {
             const plan = PLANS[planKey];
+            const annualPrice = plan.price * 12;
             const price = plan.price * (monthly ? 1 : 11);
             const selected = planKey === selectedPlan;
             return (
@@ -100,9 +101,14 @@ const PricingToggle = () => {
                     }`}
                   >
                     <h2 className="font-bold text-xl p-2">{plan.title}</h2>
-                    <p className="font-bold text-6xl p-4 border-b-2 border-gray-100">
-                      $ {price.toFixed(2)}
-                    </p>
+                    <div className="p-4 border-b-2 border-gray-100">
+                      {!monthly && (
+                        <p className="line-through text-xl p-1 font-bold text-center">
+                          ${annualPrice.toFixed(2)}
+                        </p>
+                      )}
+                      <p className="font-bold text-6xl">$ {price.toFixed(2)}</p>
+                    </div>
                     <p className="font-bold text-lg border-b-2 border-gray-100">
                       {plan.storage} Storage
                     </p>
