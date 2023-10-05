@@ -126,3 +126,8 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+.animate {
+  transform: scale(1.2);
+  background-color: yellow;
+}

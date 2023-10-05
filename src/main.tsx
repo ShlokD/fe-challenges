@@ -48,6 +48,9 @@ const PasswordStrength = React.lazy(() => import("./password-strength"));
 const VideoMenu = React.lazy(() => import("./video-menu"));
 const WhackHog = React.lazy(() => import("./whack-hog"));
 const Puzzle15 = React.lazy(() => import("./puzzle-15"));
+const Waves = React.lazy(() => import("./waves"));
+const PricingToggle = React.lazy(() => import("./pricing-toggle"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -224,6 +227,14 @@ const router = createBrowserRouter([
   {
     path: "/puzzle-15",
     element: <Puzzle15 />,
+  },
+  {
+    path: "/waves",
+    element: <Waves />,
+  },
+  {
+    path: "/pricing-toggle",
+    element: <PricingToggle />,
   },
 ]);
 
