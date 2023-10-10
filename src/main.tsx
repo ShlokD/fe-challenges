@@ -50,6 +50,7 @@ const WhackHog = React.lazy(() => import("./whack-hog"));
 const Puzzle15 = React.lazy(() => import("./puzzle-15"));
 const Waves = React.lazy(() => import("./waves"));
 const PricingToggle = React.lazy(() => import("./pricing-toggle"));
+const HoverBoard = React.lazy(() => import("./hover-board"));
 
 const router = createBrowserRouter([
   {
@@ -235,6 +236,10 @@ const router = createBrowserRouter([
   {
     path: "/pricing-toggle",
     element: <PricingToggle />,
+  },
+  {
+    path: "/hover-board",
+    element: <HoverBoard />,
   },
 ]);
 

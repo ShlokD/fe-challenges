@@ -21,13 +21,12 @@ const getTimeString = (time: number) => {
     milliseconds: "." + milliseconds.toString().padStart(3, "0"),
   };
 };
-type Timer = ReturnType<typeof setInterval>;
 
 const Stopwatch = () => {
   const [splits, setSplits] = useState<string[]>([]);
   const [time, setTime] = useState(0);
   const [timerState, setTimerState] = useState("PAUSE");
-  const timerRef = useRef<Timer | null>(null);
+  const timerRef = useRef<number | null>(null);
   const { timeString, milliseconds } = getTimeString(time);
 
   const handleReset = () => {
@@ -47,7 +46,7 @@ const Stopwatch = () => {
   const handleStartStop = () => {
     if (timerState === "PAUSE") {
       setTimerState("START");
-      timerRef.current = setInterval(() => {
+      timerRef.current = window.setInterval(() => {
         setTime((prev) => prev + 1);
       }, 10);
     } else if (timerState === "START") {

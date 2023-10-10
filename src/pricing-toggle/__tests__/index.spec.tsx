@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { describe, it, vi } from "vitest";
+import { describe, it } from "vitest";
 
 import PricingToggle from "..";
 
