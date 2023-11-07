@@ -153,6 +153,9 @@ function App() {
         <li className="text-2xl w-1/3 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/hover-board`}>Hover Board</Link>
         </li>
+        <li className="text-2xl w-1/3 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/hand-cricket`}>Hand Cricket</Link>
+        </li>
       </ul>
     </div>
   );
