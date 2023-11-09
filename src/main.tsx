@@ -52,6 +52,8 @@ const Waves = React.lazy(() => import("./waves"));
 const PricingToggle = React.lazy(() => import("./pricing-toggle"));
 const HoverBoard = React.lazy(() => import("./hover-board"));
 const HandCricket = React.lazy(() => import("./hand-cricket"));
+const ProgressStepper = React.lazy(() => import("./progress-stepper"));
+const WordScramble = React.lazy(() => import("./word-scramble"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -244,6 +246,14 @@ const router = createBrowserRouter([
   {
     path: "/hand-cricket",
     element: <HandCricket />,
+  },
+  {
+    path: "/progress-stepper",
+    element: <ProgressStepper />,
+  },
+  {
+    path: "/word-scramble",
+    element: <WordScramble />,
   },
 ]);
 
