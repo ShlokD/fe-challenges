@@ -197,7 +197,7 @@ const Game = ({
       });
       setGame((prev) => {
         const newBalls = prev.balls + 1;
-        if (newBalls === 6) {
+        if (newBalls > 6) {
           setPlayerState(
             playerState === PlayState.Bat ? PlayState.Bowl : PlayState.Bat,
           );
