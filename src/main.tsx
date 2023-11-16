@@ -54,6 +54,7 @@ const HoverBoard = React.lazy(() => import("./hover-board"));
 const HandCricket = React.lazy(() => import("./hand-cricket"));
 const ProgressStepper = React.lazy(() => import("./progress-stepper"));
 const WordScramble = React.lazy(() => import("./word-scramble"));
+const BonsaiPricing = React.lazy(() => import("./bonsai-pricing"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -254,6 +255,10 @@ const router = createBrowserRouter([
   {
     path: "/word-scramble",
     element: <WordScramble />,
+  },
+  {
+    path: "/bonsai-pricing",
+    element: <BonsaiPricing />,
   },
 ]);
 
