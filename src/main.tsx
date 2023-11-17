@@ -55,6 +55,7 @@ const HandCricket = React.lazy(() => import("./hand-cricket"));
 const ProgressStepper = React.lazy(() => import("./progress-stepper"));
 const WordScramble = React.lazy(() => import("./word-scramble"));
 const BonsaiPricing = React.lazy(() => import("./bonsai-pricing"));
+const CommentsBox = React.lazy(() => import("./comments-box"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -259,6 +260,10 @@ const router = createBrowserRouter([
   {
     path: "/bonsai-pricing",
     element: <BonsaiPricing />,
+  },
+  {
+    path: "/comments-box",
+    element: <CommentsBox />,
   },
 ]);
 
