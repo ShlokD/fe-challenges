@@ -4,10 +4,10 @@ function App() {
   return (
     <div className="p-4 flex flex-col">
       <h1 className="text-bold text-center text-4xl underline">
-        FE Challenges
+        Web Mini Apps
       </h1>
       <p className="text-lg text-center p-2">
-        A collection of solved front-end challenges
+        A collection of web mini-apps and widgets
       </p>
       <ul className="flex flex-row gap-2 items-stretch justify-center p-3 w-full flex-wrap">
         <li className="text-2xl w-1/3 text-center  my-2 bg-blue-500 text-white p-2 rounded-lg">
@@ -167,6 +167,9 @@ function App() {
         </li>
         <li className="text-2xl w-1/3 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/comments-box`}>Comments Box</Link>
+        </li>
+        <li className="text-2xl w-1/3 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/metronome`}>Metronome</Link>
         </li>
       </ul>
     </div>

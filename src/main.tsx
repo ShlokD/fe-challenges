@@ -56,6 +56,8 @@ const ProgressStepper = React.lazy(() => import("./progress-stepper"));
 const WordScramble = React.lazy(() => import("./word-scramble"));
 const BonsaiPricing = React.lazy(() => import("./bonsai-pricing"));
 const CommentsBox = React.lazy(() => import("./comments-box"));
+const Metronome = React.lazy(() => import("./metronome"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -264,6 +266,10 @@ const router = createBrowserRouter([
   {
     path: "/comments-box",
     element: <CommentsBox />,
+  },
+  {
+    path: "/metronome",
+    element: <Metronome />,
   },
 ]);
 
