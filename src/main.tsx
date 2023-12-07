@@ -58,7 +58,7 @@ const BonsaiPricing = React.lazy(() => import("./bonsai-pricing"));
 const CommentsBox = React.lazy(() => import("./comments-box"));
 const Metronome = React.lazy(() => import("./metronome"));
 const DeepBreathing = React.lazy(() => import("./deep-breathing"));
-
+const RestaurantSim = React.lazy(() => import("./restaurant-sim"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -275,6 +275,10 @@ const router = createBrowserRouter([
   {
     path: "/deep-breathing",
     element: <DeepBreathing />,
+  },
+  {
+    path: "/restaurant-sim",
+    element: <RestaurantSim />,
   },
 ]);
 

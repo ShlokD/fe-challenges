@@ -73,7 +73,6 @@ const DeepBreathing = () => {
     } else {
       cycle();
       intervalRef.current = window.setInterval(() => {
-        console.log("hello");
         cycle();
       }, (2 * breathDuration + holdDuration) * 1000);
     }
