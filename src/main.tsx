@@ -59,6 +59,9 @@ const CommentsBox = React.lazy(() => import("./comments-box"));
 const Metronome = React.lazy(() => import("./metronome"));
 const DeepBreathing = React.lazy(() => import("./deep-breathing"));
 const RestaurantSim = React.lazy(() => import("./restaurant-sim"));
+const ImageHotspot = React.lazy(() => import("./image-hotspot"));
+const VerticalSpinner = React.lazy(() => import("./vertical-spinner"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -279,6 +282,14 @@ const router = createBrowserRouter([
   {
     path: "/restaurant-sim",
     element: <RestaurantSim />,
+  },
+  {
+    path: "/image-hotspot",
+    element: <ImageHotspot />,
+  },
+  {
+    path: "/vertical-spinner",
+    element: <VerticalSpinner />,
   },
 ]);
 

@@ -21,6 +21,5 @@ describe("<RestaurantSim />", () => {
     const addCookBtn = screen.getByRole("button", { name: /add cook/i });
     fireEvent.click(addCookBtn);
     expect(screen.getByText(/cook 2 idle/i)).toBeDefined();
-
   });
 });

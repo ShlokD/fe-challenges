@@ -40,7 +40,7 @@ function createFetchResponse() {
   return { json: () => new Promise((resolve) => resolve(data)) };
 }
 
-describe("<TarotCards />", () => {
+describe("<GymSearch />", () => {
   it("should render gym search", async () => {
     fetch.mockResolvedValue(createFetchResponse());
     render(
