@@ -61,7 +61,7 @@ const DeepBreathing = React.lazy(() => import("./deep-breathing"));
 const RestaurantSim = React.lazy(() => import("./restaurant-sim"));
 const ImageHotspot = React.lazy(() => import("./image-hotspot"));
 const VerticalSpinner = React.lazy(() => import("./vertical-spinner"));
-
+const BeforeAfter = React.lazy(() => import("./before-after"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -290,6 +290,10 @@ const router = createBrowserRouter([
   {
     path: "/vertical-spinner",
     element: <VerticalSpinner />,
+  },
+  {
+    path: "/before-after",
+    element: <BeforeAfter />,
   },
 ]);
 

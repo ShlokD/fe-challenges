@@ -41,6 +41,7 @@ const VerticalSpinner = () => {
     if (items.length === 0) {
       return;
     }
+
     setCurrentSpin(0);
     setIsSpinning(true);
     const spinDuration = items.length * 2 + Math.floor(Math.random() * 10);
