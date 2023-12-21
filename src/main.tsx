@@ -62,6 +62,8 @@ const RestaurantSim = React.lazy(() => import("./restaurant-sim"));
 const ImageHotspot = React.lazy(() => import("./image-hotspot"));
 const VerticalSpinner = React.lazy(() => import("./vertical-spinner"));
 const BeforeAfter = React.lazy(() => import("./before-after"));
+const GridCountdown = React.lazy(() => import("./grid-countdown"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -294,6 +296,10 @@ const router = createBrowserRouter([
   {
     path: "/before-after",
     element: <BeforeAfter />,
+  },
+  {
+    path: "/grid-countdown",
+    element: <GridCountdown />,
   },
 ]);
 
