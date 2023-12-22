@@ -64,7 +64,7 @@ const VerticalSpinner = React.lazy(() => import("./vertical-spinner"));
 const BeforeAfter = React.lazy(() => import("./before-after"));
 const GridCountdown = React.lazy(() => import("./grid-countdown"));
 const EventListings = React.lazy(() => import("./event-listings"));
-
+const ProductGrid = React.lazy(() => import("./product-grid"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -305,6 +305,10 @@ const router = createBrowserRouter([
   {
     path: "/event-listings",
     element: <EventListings />,
+  },
+  {
+    path: "/product-grid",
+    element: <ProductGrid />,
   },
 ]);
 

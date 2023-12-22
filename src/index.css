@@ -58,6 +58,14 @@ body {
   transform: scale(1.2);
 }
 
+.product-image-container:hover img {
+  opacity: 20%
+}
+
+.product-image-container:hover .product-info {
+  opacity: 100%;
+}
+
 @keyframes blinking {
   0% {
     opacity: 100%;
