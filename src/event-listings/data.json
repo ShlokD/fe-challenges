@@ -1,0 +1,110 @@
+[
+  {
+    "type": "Music",
+    "event": "Jingle Bell Rock Concert",
+    "price": 500,
+    "date": "2023-12-23"
+  },
+  {
+    "type": "Music",
+    "event": "Indie Night at The Backstage",
+    "price": 200,
+    "date": "2023-12-28"
+  },
+  {
+    "type": "Music",
+    "event": "New Year's Eve EDM Party",
+    "price": 1000,
+    "date": "2023-12-31"
+  },
+  {
+    "type": "Music",
+    "event": "Gospel Choir Performance",
+    "price": "Free",
+    "date": "2024-01-07"
+  },
+  {
+    "type": "Sports",
+    "event": "Pro Kabaddi League Finals",
+    "price": 1200,
+    "date": "2023-12-30"
+  },
+  {
+    "type": "Sports",
+    "event": "Bengaluru FC vs. Kerala Blasters (Football)",
+    "price": 450,
+    "date": "2024-01-03"
+  },
+  {
+    "type": "Sports",
+    "event": "International Tennis Open",
+    "price": 800,
+    "date": "2024-01-12"
+  },
+  {
+    "type": "Sports",
+    "event": "City Marathon",
+    "price": "300 (participants), Free (spectators)",
+    "date": "2024-01-20"
+  },
+  {
+    "type": "Comedy",
+    "event": "Stand-Up Night with Raju Srivastava",
+    "price": 350,
+    "date": "2024-01-06"
+  },
+  {
+    "type": "Comedy",
+    "event": "Open Mic Night at The Chuckle Hut",
+    "price": 100,
+    "date": "2023-12-24"
+  },
+  {
+    "type": "Comedy",
+    "event": "Improv Comedy Show",
+    "price": 400,
+    "date": "2024-01-15"
+  },
+  {
+    "type": "Comedy",
+    "event": "Comedy Sketches by The Funny Bones",
+    "price": 250,
+    "date": "2024-01-22"
+  },
+  {
+    "type": "Theater",
+    "event": "The Lion, the Witch, and the Wardrobe",
+    "price": 800,
+    "date": "2024-01-14"
+  },
+  {
+    "type": "Theater",
+    "event": "A Midsummer Night's Dream",
+    "price": 500,
+    "date": "2023-12-27"
+  },
+  {
+    "type": "Theater",
+    "event": "The Phantom of the Opera",
+    "price": 1500,
+    "date": "2024-01-05"
+  },
+  {
+    "type": "Theater",
+    "event": "Stand-up Tragedy",
+    "price": 300,
+    "date": "2024-01-18"
+  },
+  {
+    "type": "Food Festival",
+    "event": "International Street Food Fiesta",
+    "price": "250 (entry), variable for food items",
+    "date": "2023-12-29 to 2024-01-01"
+  },
+  {
+    "type": "Food Festival",
+    "event": "Bengaluru Food Truck Festival",
+    "price": "Free entry, variable food prices",
+    "date": "2024-01-18"
+  }
+]

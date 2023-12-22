@@ -63,6 +63,7 @@ const ImageHotspot = React.lazy(() => import("./image-hotspot"));
 const VerticalSpinner = React.lazy(() => import("./vertical-spinner"));
 const BeforeAfter = React.lazy(() => import("./before-after"));
 const GridCountdown = React.lazy(() => import("./grid-countdown"));
+const EventListings = React.lazy(() => import("./event-listings"));
 
 const router = createBrowserRouter([
   {
@@ -300,6 +301,10 @@ const router = createBrowserRouter([
   {
     path: "/grid-countdown",
     element: <GridCountdown />,
+  },
+  {
+    path: "/event-listings",
+    element: <EventListings />,
   },
 ]);
 
