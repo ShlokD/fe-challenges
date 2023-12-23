@@ -11,12 +11,14 @@ const getDateDiff = (date: Date) => {
   const current = new Date();
   const diffTime = Math.abs(current.getTime() - date.getTime());
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const months = Math.floor(diffDays / 30);
+  const weeks = Math.floor(diffDays / 7 - months * 4);
+  const days = diffDays - months * 30;
+
   const seconds = diffTime / 1000;
   const minutes = seconds / 60;
   const hours = minutes / 60;
-  const days = hours / 24;
-  const weeks = days / 7;
-  const months = days / 30;
+
   return {
     seconds,
     minutes,
@@ -46,7 +48,6 @@ const GridCountdown = () => {
       clearInterval(intervalRef.current);
     }
     const newDate = new Date(date);
-    setFutureDate(newDate);
     intervalRef.current = window.setInterval(() => {
       setDiff(getDateDiff(newDate));
     }, 1000);
