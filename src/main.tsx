@@ -65,6 +65,9 @@ const BeforeAfter = React.lazy(() => import("./before-after"));
 const GridCountdown = React.lazy(() => import("./grid-countdown"));
 const EventListings = React.lazy(() => import("./event-listings"));
 const ProductGrid = React.lazy(() => import("./product-grid"));
+const NewsTicker = React.lazy(() => import("./news-ticker"));
+const ImageZoom = React.lazy(() => import("./image-zoom"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -309,6 +312,14 @@ const router = createBrowserRouter([
   {
     path: "/product-grid",
     element: <ProductGrid />,
+  },
+  {
+    path: "/news-ticker",
+    element: <NewsTicker />,
+  },
+  {
+    path: "/image-zoom",
+    element: <ImageZoom />,
   },
 ]);
 

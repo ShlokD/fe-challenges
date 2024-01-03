@@ -59,11 +59,16 @@ body {
 }
 
 .product-image-container:hover img {
-  opacity: 20%
+  opacity: 20%;
 }
 
 .product-image-container:hover .product-info {
   opacity: 100%;
+}
+
+.marquee {
+  animation: marquee 30s linear infinite;
+  height: 2rem;
 }
 
 @keyframes blinking {
@@ -75,6 +80,15 @@ body {
   }
   100% {
     opacity: 100%;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(20%, 0);
+  }
+  100% {
+    transform: translate(-950%, 0);
   }
 }
 

@@ -17,6 +17,7 @@ const getDateDiff = (date: Date) => {
 
   const seconds = diffTime / 1000;
   const minutes = seconds / 60;
+
   const hours = minutes / 60;
 
   return {
@@ -48,6 +49,7 @@ const GridCountdown = () => {
       clearInterval(intervalRef.current);
     }
     const newDate = new Date(date);
+    setFutureDate(newDate);
     intervalRef.current = window.setInterval(() => {
       setDiff(getDateDiff(newDate));
     }, 1000);
