@@ -67,6 +67,7 @@ const EventListings = React.lazy(() => import("./event-listings"));
 const ProductGrid = React.lazy(() => import("./product-grid"));
 const NewsTicker = React.lazy(() => import("./news-ticker"));
 const ImageZoom = React.lazy(() => import("./image-zoom"));
+const Othello = React.lazy(() => import("./othello"));
 
 const router = createBrowserRouter([
   {
@@ -320,6 +321,10 @@ const router = createBrowserRouter([
   {
     path: "/image-zoom",
     element: <ImageZoom />,
+  },
+  {
+    path: "/othello",
+    element: <Othello />,
   },
 ]);
 
