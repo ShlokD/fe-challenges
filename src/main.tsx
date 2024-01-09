@@ -68,6 +68,7 @@ const ProductGrid = React.lazy(() => import("./product-grid"));
 const NewsTicker = React.lazy(() => import("./news-ticker"));
 const ImageZoom = React.lazy(() => import("./image-zoom"));
 const Othello = React.lazy(() => import("./othello"));
+const RPSMatchup = React.lazy(() => import("./rps-matchup"));
 
 const router = createBrowserRouter([
   {
@@ -325,6 +326,10 @@ const router = createBrowserRouter([
   {
     path: "/othello",
     element: <Othello />,
+  },
+  {
+    path: "/rps-matchup",
+    element: <RPSMatchup />,
   },
 ]);
 

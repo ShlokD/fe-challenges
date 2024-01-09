@@ -204,6 +204,9 @@ function App() {
         <li className="text-2xl w-1/3 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/othello`}>Othello</Link>
         </li>
+        <li className="text-2xl w-1/3 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/rps-matchup`}>Rock Paper Scissors Matchup</Link>
+        </li>
       </ul>
     </div>
   );
