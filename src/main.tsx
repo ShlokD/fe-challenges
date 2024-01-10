@@ -69,6 +69,7 @@ const NewsTicker = React.lazy(() => import("./news-ticker"));
 const ImageZoom = React.lazy(() => import("./image-zoom"));
 const Othello = React.lazy(() => import("./othello"));
 const RPSMatchup = React.lazy(() => import("./rps-matchup"));
+const Wator = React.lazy(() => import("./wator"));
 
 const router = createBrowserRouter([
   {
@@ -330,6 +331,10 @@ const router = createBrowserRouter([
   {
     path: "/rps-matchup",
     element: <RPSMatchup />,
+  },
+  {
+    path: "/wa-tor",
+    element: <Wator />,
   },
 ]);
 
