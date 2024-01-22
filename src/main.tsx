@@ -70,7 +70,8 @@ const ImageZoom = React.lazy(() => import("./image-zoom"));
 const Othello = React.lazy(() => import("./othello"));
 const RPSMatchup = React.lazy(() => import("./rps-matchup"));
 const Wator = React.lazy(() => import("./wator"));
-
+const Checklist = React.lazy(() => import("./checklist"));
+const NavigationBars = React.lazy(() => import("./navigation-bars"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -335,6 +336,14 @@ const router = createBrowserRouter([
   {
     path: "/wa-tor",
     element: <Wator />,
+  },
+  {
+    path: "/checklist",
+    element: <Checklist />,
+  },
+  {
+    path: "/navigation-bars",
+    element: <NavigationBars />,
   },
 ]);
 

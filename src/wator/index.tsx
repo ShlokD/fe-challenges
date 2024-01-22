@@ -23,8 +23,8 @@ const getRandomNeighbour = (grid: Cell[][], i: number, j: number) => {
   for (let x = -1; x <= 1; ++x) {
     for (let y = -1; y <= 1; ++y) {
       if (x === 0 && y === 0) continue;
-      let row = i + x;
-      let col = j + y;
+      const row = i + x;
+      const col = j + y;
       const cell = grid?.[row]?.[col];
       if (cell?.value === "") {
         neighbours.push({ row, col });
@@ -44,8 +44,8 @@ const getSharkNeighbour = (grid: Cell[][], i: number, j: number) => {
   for (let x = -1; x <= 1; ++x) {
     for (let y = -1; y <= 1; ++y) {
       if (x === 0 && y === 0) continue;
-      let row = i + x;
-      let col = j + y;
+      const row = i + x;
+      const col = j + y;
       const cell = grid?.[row]?.[col];
       if (cell?.value === "F") {
         return { row, col };
