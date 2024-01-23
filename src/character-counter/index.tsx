@@ -103,12 +103,28 @@ const CharacterCounter = () => {
     setCounters((prev) => {
       return [...prev, prev.length + 1];
     });
+    setCount((prev) => {
+      return { ...prev, elements: [...prev.elements, { ch: 0, words: 0 }] };
+    });
   };
 
   const deleteCounter = () => {
     setCounters((prev) => {
       prev.pop();
       return [...prev];
+    });
+    setCount((prev) => {
+      const newCount = { ...prev };
+      newCount.elements.pop();
+      newCount.ch = newCount.elements.reduce(
+        (sum, elem) => (sum += elem.ch),
+        0,
+      );
+      newCount.words = newCount.elements.reduce(
+        (sum, elem) => (sum += elem.words),
+        0,
+      );
+      return newCount;
     });
   };
   return (
