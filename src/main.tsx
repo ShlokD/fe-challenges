@@ -73,7 +73,7 @@ const Wator = React.lazy(() => import("./wator"));
 const Checklist = React.lazy(() => import("./checklist"));
 const NavigationBars = React.lazy(() => import("./navigation-bars"));
 const CharacterCounter = React.lazy(() => import("./character-counter"));
-
+const FeedbackWidget = React.lazy(() => import("./feedback-widget"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -350,6 +350,10 @@ const router = createBrowserRouter([
   {
     path: "/character-counter",
     element: <CharacterCounter />,
+  },
+  {
+    path: "/feedback-widget",
+    element: <FeedbackWidget />,
   },
 ]);
 
