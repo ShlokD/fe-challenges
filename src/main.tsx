@@ -74,6 +74,7 @@ const Checklist = React.lazy(() => import("./checklist"));
 const NavigationBars = React.lazy(() => import("./navigation-bars"));
 const CharacterCounter = React.lazy(() => import("./character-counter"));
 const FeedbackWidget = React.lazy(() => import("./feedback-widget"));
+const WolfSheep = React.lazy(() => import("./wolf-sheep"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -354,6 +355,10 @@ const router = createBrowserRouter([
   {
     path: "/feedback-widget",
     element: <FeedbackWidget />,
+  },
+  {
+    path: "/wolf-sheep",
+    element: <WolfSheep />,
   },
 ]);
 
