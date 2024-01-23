@@ -22,10 +22,10 @@ describe("<CharacterCounter />", () => {
     fireEvent.click(addCtr);
     const ctr2 = screen.getByRole("textbox", { name: /counter-2/i });
     expect(ctr2).toBeDefined();
-    fireEvent.change(ctr1, { target: { value: "Hello how are you " } });
-    fireEvent.change(ctr2, { target: { value: "Hello how are you " } });
+    fireEvent.change(ctr1, { target: { value: "Hello how are you" } });
+    fireEvent.change(ctr2, { target: { value: "Hello how are you" } });
 
-    expect(screen.getByText(/36/i)).toBeDefined();
+    expect(screen.getByText(/34/i)).toBeDefined();
     expect(screen.getByText("8")).toBeDefined();
   });
 });

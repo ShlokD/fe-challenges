@@ -6,26 +6,27 @@ type Count = {
   ch: number;
   words: number;
 };
+
+type ChangeArgs = Count & { index: number };
+
 type CounterProps = {
+  index: number;
   title: string;
-  onChange: (countArgs: Count) => void;
+  onChange: (changeArgs: ChangeArgs) => void;
 };
 
-const Counter = ({ title, onChange }: CounterProps) => {
+const Counter = ({ title, index, onChange }: CounterProps) => {
   const [text, setText] = useState("");
   const [count, setCount] = useState<Count>({ ch: 0, words: 0 });
 
   const handleTextChange = (ev: ChangeEvent<HTMLTextAreaElement>) => {
     const value = ev.target.value;
-    const deltaLength = value.length - text.length;
-    const wordCount = text.split(" ").length;
-    const newWordCount = value.split(" ").length;
-    const deltaWords = newWordCount - wordCount;
-    setCount((prev) => ({
-      ch: prev.ch + deltaLength,
-      words: prev.words + deltaWords,
+    const newWordCount = value.trim().split(" ").length;
+    setCount(() => ({
+      ch: value.length,
+      words: newWordCount,
     }));
-    onChange({ ch: deltaLength, words: deltaWords });
+    onChange({ index, ch: value.length, words: newWordCount });
     setText(value);
   };
 
@@ -60,14 +61,42 @@ const Counter = ({ title, onChange }: CounterProps) => {
   );
 };
 
+type CountState = {
+  elements: Count[];
+} & Count;
+
 const CharacterCounter = () => {
   const [counters, setCounters] = useState([1]);
-  const [count, setCount] = useState<Count>({ ch: 0, words: 0 });
-  const handleChange = ({ ch, words }: { ch: number; words: number }) => {
-    setCount((prev) => ({
-      ch: prev.ch + ch,
-      words: prev.words + words,
-    }));
+  const [count, setCount] = useState<CountState>({
+    elements: [],
+    ch: 0,
+    words: 0,
+  });
+  const handleChange = ({
+    index,
+    ch,
+    words,
+  }: {
+    index: number;
+    ch: number;
+    words: number;
+  }) => {
+    setCount((prev) => {
+      const newCount = { ...prev };
+      newCount.elements[index] = {
+        ch,
+        words,
+      };
+      newCount.ch = newCount.elements.reduce(
+        (sum, elem) => (sum += elem.ch),
+        0,
+      );
+      newCount.words = newCount.elements.reduce(
+        (sum, elem) => (sum += elem.words),
+        0,
+      );
+      return newCount;
+    });
   };
 
   const addCounter = () => {
@@ -127,6 +156,7 @@ const CharacterCounter = () => {
               <Counter
                 key={`counter-${i}`}
                 title={`Counter-${i + 1}`}
+                index={i}
                 onChange={handleChange}
               />
             );
