@@ -76,7 +76,7 @@ const CharacterCounter = React.lazy(() => import("./character-counter"));
 const FeedbackWidget = React.lazy(() => import("./feedback-widget"));
 const WolfSheep = React.lazy(() => import("./wolf-sheep"));
 const HeroWidget = React.lazy(() => import("./hero-widget"));
-
+const TextSelectFormat = React.lazy(() => import("./text-select-format"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -365,6 +365,10 @@ const router = createBrowserRouter([
   {
     path: "/hero-widget",
     element: <HeroWidget />,
+  },
+  {
+    path: "/text-select-format",
+    element: <TextSelectFormat />,
   },
 ]);
 
