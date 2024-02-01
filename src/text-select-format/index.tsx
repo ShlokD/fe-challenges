@@ -82,7 +82,9 @@ const TextSelectFormat = () => {
         <div className="p-2 text-lg text-pretty">
           {currentText.map((text, i) => {
             return (
-              <span className={[...text.styles].join(" ")}>{text.value} </span>
+              <span key={`text-${i}`} className={[...text.styles].join(" ")}>
+                {text.value}{" "}
+              </span>
             );
           })}
         </div>
