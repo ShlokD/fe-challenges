@@ -79,12 +79,10 @@ const TextSelectFormat = () => {
         <h2 className="p-2 text-2xl font-bold">
           Select and highlight text to format it
         </h2>
-        <div className="p-2 text-lg">
+        <div className="p-2 text-lg text-pretty">
           {currentText.map((text, i) => {
             return (
-              <span key={`text-${i}`} className={[...text.styles].join(" ")}>
-                {text.value}{" "}
-              </span>
+              <span className={[...text.styles].join(" ")}>{text.value} </span>
             );
           })}
         </div>
