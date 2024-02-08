@@ -2,8 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
+
+
 import App from "./App.tsx";
 import "./index.css";
+
 
 const Betting = React.lazy(() => import("./betting"));
 const Promotions = React.lazy(() => import("./promotions"));
@@ -77,6 +80,8 @@ const FeedbackWidget = React.lazy(() => import("./feedback-widget"));
 const WolfSheep = React.lazy(() => import("./wolf-sheep"));
 const HeroWidget = React.lazy(() => import("./hero-widget"));
 const TextSelectFormat = React.lazy(() => import("./text-select-format"));
+const IPLookup = React.lazy(() => import("./ip-lookup"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -369,6 +374,10 @@ const router = createBrowserRouter([
   {
     path: "/text-select-format",
     element: <TextSelectFormat />,
+  },
+  {
+    path: "/ip-lookup",
+    element: <IPLookup />,
   },
 ]);
 
