@@ -47,6 +47,20 @@ body {
   background-color: green;
 }
 
+.survey-app-progress {
+  height: 30px;
+}
+
+.survey-app-progress::-webkit-progress-bar {
+  background-color: transparent;
+  width: 100%;
+}
+
+.survey-app-progress::-webkit-progress-value {
+  background-color: lightgreen;
+  width: 100%;
+}
+
 .blink {
   animation: blinking;
   animation-duration: 0.8s;

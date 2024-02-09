@@ -78,6 +78,7 @@ const WolfSheep = React.lazy(() => import("./wolf-sheep"));
 const HeroWidget = React.lazy(() => import("./hero-widget"));
 const TextSelectFormat = React.lazy(() => import("./text-select-format"));
 const IPLookup = React.lazy(() => import("./ip-lookup"));
+const SurveyApp = React.lazy(() => import("./survey-app"));
 
 const router = createBrowserRouter([
   {
@@ -375,6 +376,10 @@ const router = createBrowserRouter([
   {
     path: "/ip-lookup",
     element: <IPLookup />,
+  },
+  {
+    path: "/survey-app",
+    element: <SurveyApp />,
   },
 ]);
 
