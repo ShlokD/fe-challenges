@@ -190,7 +190,6 @@ const SurveyItem = (props: SurveyItemProps) => {
     onClose();
   };
 
-  const total = options.reduce((total, opt) => (total += opt.votes), 0);
   return (
     <div className="p-2 flex flex-col items-center gap-4 border-2 rounded-2xl shadow-2xl p-4 items-center w-2/3">
       <h2 className="text-2xl font-bold">{title}</h2>
@@ -218,22 +217,23 @@ const SurveyItem = (props: SurveyItemProps) => {
         }`}
       >
         {options.map((option, i) => {
+          const dots = new Array(option.votes).fill(0);
           return (
             <div
               key={`results-${i}`}
-              className="flex gap-2 items-center justify-start w-full"
+              className="flex gap-2 items-center justify-center w-full"
             >
-              <label htmlFor={`votes-${i}`} className="font-bold w-1/6 text-xl">
+              <p className="font-bold w-1/6 text-xl">
                 {option.name} - {option.votes}
-              </label>
-              <progress
-                className="survey-app-progress w-5/6"
-                value={option.votes}
-                id={`votes-${i}`}
-                max={total}
-              >
-                {option.votes}
-              </progress>
+              </p>
+              <div className="flex gap-1 flex-wrap border-2 p-4 border-black w-3/6">
+                {dots.map((_, i) => (
+                  <span
+                    key={`dot-${i}`}
+                    className="h-6 w-6 rounded-full bg-green-600"
+                  ></span>
+                ))}
+              </div>
             </div>
           );
         })}

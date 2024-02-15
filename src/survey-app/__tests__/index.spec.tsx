@@ -21,8 +21,7 @@ describe("<SurveyApp />", () => {
     expect(opp).toBeDefined();
     fireEvent.click(opp);
 
-    const progressBars = await screen.findAllByRole("progressbar");
-    expect(progressBars).toHaveLength(4);
-    expect(progressBars[0].value).toEqual(19);
+    const text = await screen.findByText(/19/i);
+    expect(text).toBeDefined();
   });
 });
