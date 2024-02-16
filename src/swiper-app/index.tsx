@@ -78,9 +78,9 @@ const SwiperApp = () => {
                 }`}
               >
                 <img
-                  src={`https://picsum.photos/400/600?random=${i}`}
-                  height="600"
-                  width="400"
+                  src={`https://picsum.photos/240/400?random=${i}`}
+                  height="400"
+                  width="240"
                   alt={`Card ${i + 1}`}
                 />
               </div>
