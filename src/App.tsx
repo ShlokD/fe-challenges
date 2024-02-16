@@ -81,15 +81,12 @@ function App() {
         <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/color-game`}>Color Game</Link>
         </li>
-
         <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/turtle-graphics`}>Turtle Graphics</Link>
         </li>
-
         <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/xr-keyboard`}>XR Keyboard</Link>
         </li>
-
         <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/moonpay-currency`}>Moonpay Currencies</Link>
         </li>
@@ -236,6 +233,9 @@ function App() {
         </li>
         <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/survey-app`}>Survey App</Link>
+        </li>
+        <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/swiper`}>Swiper App</Link>
         </li>
       </ul>
     </div>

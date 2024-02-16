@@ -79,6 +79,7 @@ const HeroWidget = React.lazy(() => import("./hero-widget"));
 const TextSelectFormat = React.lazy(() => import("./text-select-format"));
 const IPLookup = React.lazy(() => import("./ip-lookup"));
 const SurveyApp = React.lazy(() => import("./survey-app"));
+const SwiperApp = React.lazy(() => import("./swiper-app"));
 
 const router = createBrowserRouter([
   {
@@ -380,6 +381,10 @@ const router = createBrowserRouter([
   {
     path: "/survey-app",
     element: <SurveyApp />,
+  },
+  {
+    path: "/swiper",
+    element: <SwiperApp />,
   },
 ]);
 
