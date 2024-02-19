@@ -12,20 +12,17 @@ const SwiperApp = () => {
   const minSwipeDistance = 50;
 
   const onTouchStart = (e: TouchEvent<HTMLDivElement>) => {
-    e.preventDefault();
     e.stopPropagation();
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
 
   const onTouchMove = (e: TouchEvent<HTMLDivElement>) => {
-    e.preventDefault();
     e.stopPropagation();
     setTouchEnd(e.targetTouches[0].clientX);
   };
 
   const onTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
-    e.preventDefault();
     e.stopPropagation();
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
@@ -46,11 +43,11 @@ const SwiperApp = () => {
   };
 
   useEffect(() => {
-    document.body.classList.add("overflow-hidden");
-    window.addEventListener("scroll", (e) => e.preventDefault());
+    document.body.classList.add("overflow-x-hidden");
+    document.addEventListener("scroll", (e) => e.preventDefault());
     return () => {
-      document.body.classList.remove("overflow-hidden");
-      window.removeEventListener("scroll", (e) => e.preventDefault());
+      document.body.classList.remove("overflow-x-hidden");
+      document.removeEventListener("scroll", (e) => e.preventDefault());
     };
   }, []);
   return (
@@ -59,7 +56,7 @@ const SwiperApp = () => {
         <HomeLink />
         <h1 className="font-bold text-2xl text-white"> Swiper Interaction </h1>
       </header>
-      <main className="flex flex-col max-w-screen min-h-screen p-2 overflow-hidden">
+      <main className="flex flex-col max-w-full min-h-screen p-2 overflow-hidden">
         {cards.map((val, i) => {
           return (
             <div
@@ -73,7 +70,7 @@ const SwiperApp = () => {
                 style={{
                   transform: `translateX(${val * 1800}px)`,
                 }}
-                className={`p-4 bg-white rounded-xl my-4 absolute border-4 border-black transition-transform ease-in-out ${
+                className={`p-4 bg-white rounded-xl my-4 absolute border-4 border-black transition-transform ease-in-out duration-500 ${
                   i === cardIndex ? "z-20 -top-2" : "z-10 top-0"
                 }`}
               >
@@ -90,7 +87,7 @@ const SwiperApp = () => {
         <div
           className="flex gap-2 absolute items-center justify-center w-full"
           style={{
-            top: "750px",
+            top: "550px",
           }}
         >
           <button

@@ -80,6 +80,7 @@ const TextSelectFormat = React.lazy(() => import("./text-select-format"));
 const IPLookup = React.lazy(() => import("./ip-lookup"));
 const SurveyApp = React.lazy(() => import("./survey-app"));
 const SwiperApp = React.lazy(() => import("./swiper-app"));
+const PokeCards = React.lazy(() => import("./poke-cards"));
 
 const router = createBrowserRouter([
   {
@@ -385,6 +386,10 @@ const router = createBrowserRouter([
   {
     path: "/swiper",
     element: <SwiperApp />,
+  },
+  {
+    path: "/poke-cards",
+    element: <PokeCards />,
   },
 ]);
 
