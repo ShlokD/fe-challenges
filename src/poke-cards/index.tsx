@@ -55,7 +55,7 @@ const PokeCards = () => {
 
   const loadCards = async () => {
     try {
-      const randomOffset = Math.floor(Math.random() * 100);
+      const randomOffset = Math.floor(Math.random() * 1000);
       const url = `${BASE_URL}?limit=${LENGTH}&offset=${randomOffset}`;
       const res = await fetch(url);
       const json = await res.json();
@@ -209,8 +209,8 @@ const PokeCards = () => {
         {(game === Game.PLAYER_ONE ||
           game === Game.PLAYER_TWO ||
           game === Game.SHUFFLE) && (
-          <div className="flex w-full min-h-screen gap-2 items-stretch justify-center my-4">
-            <div className="w-1/2 flex flex-col grow-1 shrink-0">
+          <div className="flex w-full lg:p-4 flex-col lg:flex-row min-h-screen gap-2 items-stretch justify-start lg:justify-center my-4">
+            <div className="w-full lg:w-1/2 flex flex-col grow-1 shrink-0">
               <p className="font-bold text-2xl self-center text-center">
                 Score {score.one}
               </p>
@@ -219,39 +219,45 @@ const PokeCards = () => {
                 Cards left {cards?.current?.[0].length}
               </p>
 
-              {(game === Game.PLAYER_ONE || game === Game.PLAYER_TWO) && (
-                <div className="flex flex-col border-2 border-black p-2 rounded-xl shadow bg-white w-2/3 self-center">
-                  <img className="w-2/3 self-center" src={play[0]?.image} />
-                  <p className="text-center font-bold text-xl">
-                    {play[0]?.name}
-                  </p>
-                  {play[0]?.stats.map((stat, i) => {
-                    const selected = selectedStat?.name === stat.name;
-                    return (
-                      <button
-                        key={`stat-${i}`}
-                        onClick={() => selectStat(stat)}
-                        disabled={selectedStat !== null}
-                        className={`${
-                          selected ? "bg-blue-400" : ""
-                        } w-full cursor-pointer flex text-sm lg:text-xl text-start border-2 border-black rounded-xl my-1 p-2 lg:hover:bg-blue-500`}
-                      >
-                        <p className="border-r-2 w-2/3 font-bold">
-                          {" "}
-                          {stat.name}
-                        </p>
-                        <p className="w-1/3 text-center">{stat.value}</p>
-                      </button>
-                    );
-                  })}
-                </div>
+              {game === Game.SHUFFLE && (
+                <div className="flex flex-col grow-1 shrink-0 border-2 border-black p-20 w-full bg-black rounded-xl shadow w-2/3 self-center"></div>
               )}
 
-              {game === Game.SHUFFLE && (
-                <div className="flex flex-col border-2 border-black p-2 bg-black rounded-xl shadow w-2/3 self-center"></div>
+              {(game === Game.PLAYER_ONE || game === Game.PLAYER_TWO) && (
+                <div className="flex lg:flex-col items-center gap-4 w-full border-2 border-black p-2 rounded-xl shadow bg-white self-center">
+                  <div className="w-1/3 lg:w-full flex flex-col">
+                    <img className="self-center" src={play[0]?.image} />
+                    <p className="text-center font-bold text-xl">
+                      {play[0]?.name}
+                    </p>
+                  </div>
+                  <div className="w-2/3 lg:w-full flex flex-col items-center">
+                    {play[0]?.stats.map((stat, i) => {
+                      const selected = selectedStat?.name === stat.name;
+                      return (
+                        <button
+                          key={`stat-${i}`}
+                          onClick={() => selectStat(stat)}
+                          disabled={selectedStat !== null}
+                          className={`${
+                            selected ? "bg-blue-400" : ""
+                          } w-full cursor-pointer flex text-sm lg:text-xl text-start border-2 border-black rounded-xl my-1 p-2 lg:hover:bg-blue-500`}
+                        >
+                          <p className="border-r-2 w-2/3 font-bold">
+                            {" "}
+                            {stat.name}
+                          </p>
+                          <p className="w-1/3 text-center">{stat.value}</p>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
               )}
             </div>
-            <div className="w-1/2 flex flex-col grow-1 shrink-0">
+
+            <hr className="border-2 lg:hidden border-black w-full" />
+            <div className="w-full lg:w-1/2 flex flex-col grow-1 shrink-0">
               <p className="font-bold text-2xl self-center text-center">
                 Score {score.two}
               </p>
@@ -261,39 +267,42 @@ const PokeCards = () => {
               </p>
 
               {(game === Game.PLAYER_ONE || game === Game.SHUFFLE) && (
-                <div className="flex flex-col grow-1 shrink-0 border-2 border-black p-2 bg-black rounded-xl shadow w-2/3 self-center"></div>
+                <div className="flex flex-col grow-1 shrink-0 border-2 border-black p-20 w-full bg-black rounded-xl shadow w-2/3 self-center"></div>
               )}
 
               {game === Game.PLAYER_TWO && (
                 <>
-                  <div className="flex flex-col border-2 border-black p-2 rounded-xl shadow bg-white w-2/3 self-center">
-                    <img className="w-2/3 self-center" src={play[1].image} />
-                    <p className="text-center font-bold text-xl">
-                      {play[1].name}
-                    </p>
-                    {play[1]?.stats.map((stat, i) => {
-                      const selected = selectedStat?.name === stat.name;
-                      const isGreater =
-                        selected && selectedStat?.value > stat.value;
-                      return (
-                        <div
-                          key={`stat-${i}`}
-                          className={`${
-                            isGreater
-                              ? "bg-red-400"
-                              : selected
-                              ? "bg-green-400"
-                              : ""
-                          } 
-                        w-full flex text-sm lg:text-xl  text-start border-2 border-black rounded-xl my-1 p-2`}
-                        >
-                          <p className="border-r-2 w-2/3 font-bold">
-                            {stat.name}
-                          </p>
-                          <p className="w-1/3 text-center">{stat.value}</p>
-                        </div>
-                      );
-                    })}
+                  <div className="flex lg:flex-col items-center gap-4 w-full border-2 border-black p-2 rounded-xl shadow bg-white self-center">
+                    <div className="w-1/3 lg:w-full flex flex-col">
+                      <img className="self-center" src={play[1]?.image} />
+                      <p className="text-center font-bold text-xl">
+                        {play[1]?.name}
+                      </p>
+                    </div>
+                    <div className="w-2/3 lg:w-full flex flex-col items-center">
+                      {play[1]?.stats.map((stat, i) => {
+                        const selected = selectedStat?.name === stat.name;
+                        const isGreater =
+                          selected && selectedStat?.value < stat.value;
+                        return (
+                          <div
+                            key={`stat-${i}`}
+                            className={`${
+                              isGreater
+                                ? "bg-green-400"
+                                : selected
+                                ? "bg-red-400"
+                                : ""
+                            } w-full cursor-pointer flex text-sm lg:text-xl text-start border-2 border-black rounded-xl my-1 p-2 lg:hover:bg-blue-500`}
+                          >
+                            <p className="border-r-2 w-2/3 font-bold">
+                              {stat.name}
+                            </p>
+                            <p className="w-1/3 text-center">{stat.value}</p>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </>
               )}
