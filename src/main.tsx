@@ -81,6 +81,7 @@ const IPLookup = React.lazy(() => import("./ip-lookup"));
 const SurveyApp = React.lazy(() => import("./survey-app"));
 const SwiperApp = React.lazy(() => import("./swiper-app"));
 const PokeCards = React.lazy(() => import("./poke-cards"));
+const Timeline = React.lazy(() => import("./timeline"));
 
 const router = createBrowserRouter([
   {
@@ -390,6 +391,10 @@ const router = createBrowserRouter([
   {
     path: "/poke-cards",
     element: <PokeCards />,
+  },
+  {
+    path: "/timeline",
+    element: <Timeline />,
   },
 ]);
 
