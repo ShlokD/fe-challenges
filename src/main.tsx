@@ -82,6 +82,7 @@ const SurveyApp = React.lazy(() => import("./survey-app"));
 const SwiperApp = React.lazy(() => import("./swiper-app"));
 const PokeCards = React.lazy(() => import("./poke-cards"));
 const Timeline = React.lazy(() => import("./timeline"));
+const ImageUpload = React.lazy(() => import("./image-upload"));
 
 const router = createBrowserRouter([
   {
@@ -395,6 +396,10 @@ const router = createBrowserRouter([
   {
     path: "/timeline",
     element: <Timeline />,
+  },
+  {
+    path: "/image-upload",
+    element: <ImageUpload />,
   },
 ]);
 
