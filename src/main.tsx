@@ -83,6 +83,7 @@ const SwiperApp = React.lazy(() => import("./swiper-app"));
 const PokeCards = React.lazy(() => import("./poke-cards"));
 const Timeline = React.lazy(() => import("./timeline"));
 const ImageUpload = React.lazy(() => import("./image-upload"));
+const MarkdownEditor = React.lazy(() => import("./markdown-editor"));
 
 const router = createBrowserRouter([
   {
@@ -400,6 +401,10 @@ const router = createBrowserRouter([
   {
     path: "/image-upload",
     element: <ImageUpload />,
+  },
+  {
+    path: "/markdown-editor",
+    element: <MarkdownEditor />,
   },
 ]);
 
