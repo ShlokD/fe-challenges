@@ -3,11 +3,11 @@ import { useEffect, useRef, useState } from "react";
 import HomeLink from "../home-link";
 
 type ProgressBarProps = {
-  startValue: number;
+  id: number;
   onEnd: () => void;
 };
 
-const ProgressBar = ({ startValue, onEnd }: ProgressBarProps) => {
+const ProgressBar = ({ id, onEnd }: ProgressBarProps) => {
   const [value, setValue] = useState(0);
   const [pause, setPause] = useState(false);
   const timerRef = useRef<number | null>(null);
@@ -50,7 +50,7 @@ const ProgressBar = ({ startValue, onEnd }: ProgressBarProps) => {
   useEffect(() => {
     setValue(0);
     startTimer();
-  }, [startValue]);
+  }, [id]);
 
   return (
     <div className="w-full flex gap-8 my-4 items-center justify-center">
@@ -76,7 +76,7 @@ const MultiProgress = () => {
 
   const handleEnd = (index: number) => {
     setQueue((prev) => {
-      let newQueue = [...prev];
+      const newQueue = [...prev];
       if (waiting.current !== 0) {
         newQueue[index] = Math.random();
         waiting.current -= 1;
@@ -113,7 +113,7 @@ const MultiProgress = () => {
                 <ProgressBar
                   key={`bar-${i}`}
                   onEnd={() => handleEnd(i)}
-                  startValue={v}
+                  id={v}
                 />
               )
             );
