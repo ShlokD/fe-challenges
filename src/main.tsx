@@ -84,6 +84,7 @@ const PokeCards = React.lazy(() => import("./poke-cards"));
 const Timeline = React.lazy(() => import("./timeline"));
 const ImageUpload = React.lazy(() => import("./image-upload"));
 const MarkdownEditor = React.lazy(() => import("./markdown-editor"));
+const MultiProgress = React.lazy(() => import("./multi-progress"));
 
 const router = createBrowserRouter([
   {
@@ -405,6 +406,10 @@ const router = createBrowserRouter([
   {
     path: "/markdown-editor",
     element: <MarkdownEditor />,
+  },
+  {
+    path: "/multi-progress",
+    element: <MultiProgress />,
   },
 ]);
 

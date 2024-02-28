@@ -61,6 +61,16 @@ body {
   width: 100%;
 }
 
+.multi-progress::-webkit-progress-bar {
+  background-color: black;
+  width: 100%;
+}
+
+.multi-progress::-webkit-progress-value {
+  background-color: lightgreen;
+  width: 100%;
+}
+
 .blink {
   animation: blinking;
   animation-duration: 0.8s;
