@@ -252,6 +252,9 @@ function App() {
         <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/multi-progress`}>Multi Progress</Link>
         </li>
+        <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/otp-input`}>OTP Input</Link>
+        </li>
       </ul>
     </div>
   );

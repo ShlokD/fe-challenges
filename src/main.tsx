@@ -85,7 +85,7 @@ const Timeline = React.lazy(() => import("./timeline"));
 const ImageUpload = React.lazy(() => import("./image-upload"));
 const MarkdownEditor = React.lazy(() => import("./markdown-editor"));
 const MultiProgress = React.lazy(() => import("./multi-progress"));
-
+const OTPInput = React.lazy(() => import("./otp-input"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -410,6 +410,10 @@ const router = createBrowserRouter([
   {
     path: "/multi-progress",
     element: <MultiProgress />,
+  },
+  {
+    path: "/otp-input",
+    element: <OTPInput />,
   },
 ]);
 
