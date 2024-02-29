@@ -86,6 +86,8 @@ const ImageUpload = React.lazy(() => import("./image-upload"));
 const MarkdownEditor = React.lazy(() => import("./markdown-editor"));
 const MultiProgress = React.lazy(() => import("./multi-progress"));
 const OTPInput = React.lazy(() => import("./otp-input"));
+const HeatMap = React.lazy(() => import("./heat-map"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -414,6 +416,10 @@ const router = createBrowserRouter([
   {
     path: "/otp-input",
     element: <OTPInput />,
+  },
+  {
+    path: "/heat-map",
+    element: <HeatMap />,
   },
 ]);
 

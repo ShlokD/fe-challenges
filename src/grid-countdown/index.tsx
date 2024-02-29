@@ -1,11 +1,7 @@
 import { useRef, useState } from "react";
 
 import HomeLink from "../home-link";
-
-const formatDate = (date: Date | null) => {
-  if (!date) return "";
-  return date.toISOString().split("T")[0];
-};
+import { formatDate } from "../utils";
 
 const getDateDiff = (date: Date) => {
   const current = new Date();

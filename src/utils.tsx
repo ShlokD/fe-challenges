@@ -4,3 +4,8 @@ export const shuffle = (arr: any[]) => {
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value);
 };
+
+export const formatDate = (date: Date | null) => {
+  if (!date) return "";
+  return date.toISOString().split("T")[0];
+};

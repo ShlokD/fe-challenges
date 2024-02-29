@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import HomeLink from "../home-link";
+import { formatDate } from "../utils";
 
 type BikeResults = {
   image: string;
@@ -23,11 +24,6 @@ const transformBikes = (rawBikes: any[]) => {
       date: bike?.date_stolen * 1000,
     };
   });
-};
-
-const formatDate = (date: Date | null) => {
-  if (!date) return "";
-  return date.toISOString().split("T")[0];
 };
 
 type CaseState = {
