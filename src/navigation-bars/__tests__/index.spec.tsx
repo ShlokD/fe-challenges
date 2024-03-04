@@ -12,7 +12,7 @@ beforeEach(() => {
   );
 });
 
-describe("<Othello />", () => {
+describe("<NavigationBars />", () => {
   it("should render navigation bars", async () => {
     const text = await screen.findByText(/communication/i);
     expect(text).toBeDefined();
