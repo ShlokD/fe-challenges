@@ -10,7 +10,7 @@ type Seat = {
   available: boolean;
 };
 const generateSeats = () => {
-  let seats = [];
+  const seats = [];
   for (let i = 0; i < rows.length; ++i) {
     const row = [];
     for (let j = 1; j < columns; ++j) {

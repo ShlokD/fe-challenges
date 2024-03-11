@@ -89,7 +89,7 @@ const OTPInput = React.lazy(() => import("./otp-input"));
 const HeatMap = React.lazy(() => import("./heat-map"));
 const SortableList = React.lazy(() => import("./sortable-list"));
 const MultiSearchSelect = React.lazy(() => import("./multi-search-select"));
-const SeatSelection = React.lazy(() =>  import("./seat-selection"));
+const SeatSelection = React.lazy(() => import("./seat-selection"));
 
 const router = createBrowserRouter([
   {
