@@ -90,6 +90,7 @@ const HeatMap = React.lazy(() => import("./heat-map"));
 const SortableList = React.lazy(() => import("./sortable-list"));
 const MultiSearchSelect = React.lazy(() => import("./multi-search-select"));
 const SeatSelection = React.lazy(() => import("./seat-selection"));
+const SpellingBee = React.lazy(() => import("./spelling-bee"));
 
 const router = createBrowserRouter([
   {
@@ -435,6 +436,10 @@ const router = createBrowserRouter([
   {
     path: "/seat-selection",
     element: <SeatSelection />,
+  },
+  {
+    path: "/spelling-bee",
+    element: <SpellingBee />,
   },
 ]);
 

@@ -267,6 +267,9 @@ function App() {
         <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/seat-selection`}>Seat Selection</Link>
         </li>
+        <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/spelling-bee`}>Spelling Bee</Link>
+        </li>
       </ul>
     </div>
   );

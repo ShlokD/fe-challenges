@@ -157,7 +157,7 @@ const StolenBikes = () => {
           Berlin Police Stolen Bikes
         </h1>
       </header>
-      <div className="flex flex-col">
+      <main className="flex flex-col">
         <div className="flex flex-col justify-center bg-gray-100 p-4 w-full">
           <input
             className="border-2 p-2"
@@ -261,7 +261,7 @@ const StolenBikes = () => {
             </button>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 };
