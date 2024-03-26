@@ -91,6 +91,7 @@ const SortableList = React.lazy(() => import("./sortable-list"));
 const MultiSearchSelect = React.lazy(() => import("./multi-search-select"));
 const SeatSelection = React.lazy(() => import("./seat-selection"));
 const SpellingBee = React.lazy(() => import("./spelling-bee"));
+const Notifications = React.lazy(() => import("./notifications-panel"));
 
 const router = createBrowserRouter([
   {
@@ -440,6 +441,10 @@ const router = createBrowserRouter([
   {
     path: "/spelling-bee",
     element: <SpellingBee />,
+  },
+  {
+    path: "/notifications-panel",
+    element: <Notifications />,
   },
 ]);
 
