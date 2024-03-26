@@ -91,7 +91,7 @@ const Notifications = () => {
         <h1 className="font-bold text-2xl">Notifications Panel</h1>
       </header>
       <main className="flex flex-col min-h-screen w-full p-2">
-        <div className="flex flex-col w-full overflow-scroll gap-4">
+        <div className="flex flex-col w-full overflow-scroll gap-4 lg:w-2/3 self-center">
           {data.map((notification, i) => {
             const { isRead, id, title, body } = notification;
             return (

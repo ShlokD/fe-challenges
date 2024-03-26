@@ -92,6 +92,7 @@ const MultiSearchSelect = React.lazy(() => import("./multi-search-select"));
 const SeatSelection = React.lazy(() => import("./seat-selection"));
 const SpellingBee = React.lazy(() => import("./spelling-bee"));
 const Notifications = React.lazy(() => import("./notifications-panel"));
+const MaxCounter = React.lazy(() => import("./max-counter"));
 
 const router = createBrowserRouter([
   {
@@ -445,6 +446,10 @@ const router = createBrowserRouter([
   {
     path: "/notifications-panel",
     element: <Notifications />,
+  },
+  {
+    path: "/max-counter",
+    element: <MaxCounter />,
   },
 ]);
 
