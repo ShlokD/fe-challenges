@@ -276,6 +276,9 @@ function App() {
         <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/max-counter`}>Max Counter</Link>
         </li>
+        <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/emotion-slider`}>Emotion Slider</Link>
+        </li>
       </ul>
     </div>
   );
