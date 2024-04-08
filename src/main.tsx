@@ -94,6 +94,7 @@ const SpellingBee = React.lazy(() => import("./spelling-bee"));
 const Notifications = React.lazy(() => import("./notifications-panel"));
 const MaxCounter = React.lazy(() => import("./max-counter"));
 const EmotionSlider = React.lazy(() => import("./emotion-slider"));
+const GridListView = React.lazy(() => import("./grid-list-view"));
 
 const router = createBrowserRouter([
   {
@@ -455,6 +456,10 @@ const router = createBrowserRouter([
   {
     path: "/emotion-slider",
     element: <EmotionSlider />,
+  },
+  {
+    path: "/grid-list",
+    element: <GridListView />,
   },
 ]);
 
