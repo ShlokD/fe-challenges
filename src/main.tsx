@@ -96,6 +96,7 @@ const MaxCounter = React.lazy(() => import("./max-counter"));
 const EmotionSlider = React.lazy(() => import("./emotion-slider"));
 const GridListView = React.lazy(() => import("./grid-list-view"));
 const DeliveryTracker = React.lazy(() => import("./delivery-tracker"));
+const Timezones = React.lazy(() => import("./timezones"));
 
 const router = createBrowserRouter([
   {
@@ -465,6 +466,10 @@ const router = createBrowserRouter([
   {
     path: "/delivery-tracker",
     element: <DeliveryTracker />,
+  },
+  {
+    path: "/timezones",
+    element: <Timezones />,
   },
 ]);
 

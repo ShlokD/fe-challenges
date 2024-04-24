@@ -285,6 +285,9 @@ function App() {
         <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/delivery-tracker`}>Delivery Tracker</Link>
         </li>
+        <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/timezones`}>Timezones</Link>
+        </li>
       </ul>
     </div>
   );
