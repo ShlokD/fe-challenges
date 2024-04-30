@@ -5,7 +5,7 @@ import { describe, it } from "vitest";
 import BeforeAfter from "..";
 
 describe("<BeforeAfter />", () => {
-  it("should render list of pricing", async () => {
+  it(" of pricing", async () => {
     render(
       <MemoryRouter>
         <BeforeAfter />
