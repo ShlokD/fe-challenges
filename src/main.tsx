@@ -97,6 +97,7 @@ const EmotionSlider = React.lazy(() => import("./emotion-slider"));
 const GridListView = React.lazy(() => import("./grid-list-view"));
 const DeliveryTracker = React.lazy(() => import("./delivery-tracker"));
 const Timezones = React.lazy(() => import("./timezones"));
+const InvestmentAccount = React.lazy(() => import("./investment-account"));
 
 const router = createBrowserRouter([
   {
@@ -470,6 +471,10 @@ const router = createBrowserRouter([
   {
     path: "/timezones",
     element: <Timezones />,
+  },
+  {
+    path: "/investment-account",
+    element: <InvestmentAccount />,
   },
 ]);
 
