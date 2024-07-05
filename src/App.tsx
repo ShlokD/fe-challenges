@@ -291,6 +291,12 @@ function App() {
         <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/investment-account`}>Investment Account</Link>
         </li>
+        <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/resizable-box`}>Resizable Box</Link>
+        </li>
+        <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/loan-calculator`}>Loan Calculator</Link>
+        </li>
       </ul>
     </div>
   );

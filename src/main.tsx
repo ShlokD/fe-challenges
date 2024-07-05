@@ -98,6 +98,8 @@ const GridListView = React.lazy(() => import("./grid-list-view"));
 const DeliveryTracker = React.lazy(() => import("./delivery-tracker"));
 const Timezones = React.lazy(() => import("./timezones"));
 const InvestmentAccount = React.lazy(() => import("./investment-account"));
+const ResizableBox = React.lazy(() => import("./resizable-box"));
+const LoanCalculator = React.lazy(() => import("./loan-calculator"));
 
 const router = createBrowserRouter([
   {
@@ -475,6 +477,14 @@ const router = createBrowserRouter([
   {
     path: "/investment-account",
     element: <InvestmentAccount />,
+  },
+  {
+    path: "/resizable-box",
+    element: <ResizableBox />,
+  },
+  {
+    path: "/loan-calculator",
+    element: <LoanCalculator />,
   },
 ]);
 
