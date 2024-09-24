@@ -100,6 +100,7 @@ const Timezones = React.lazy(() => import("./timezones"));
 const InvestmentAccount = React.lazy(() => import("./investment-account"));
 const ResizableBox = React.lazy(() => import("./resizable-box"));
 const LoanCalculator = React.lazy(() => import("./loan-calculator"));
+const Leaderboard = React.lazy(() => import("./leaderboard"));
 
 const router = createBrowserRouter([
   {
@@ -485,6 +486,10 @@ const router = createBrowserRouter([
   {
     path: "/loan-calculator",
     element: <LoanCalculator />,
+  },
+  {
+    path: "/leaderboard",
+    element: <Leaderboard />,
   },
 ]);
 
