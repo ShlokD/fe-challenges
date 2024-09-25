@@ -101,7 +101,7 @@ const InvestmentAccount = React.lazy(() => import("./investment-account"));
 const ResizableBox = React.lazy(() => import("./resizable-box"));
 const LoanCalculator = React.lazy(() => import("./loan-calculator"));
 const Leaderboard = React.lazy(() => import("./leaderboard"));
-
+const DonationPage = React.lazy(() => import("./donation-page"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -490,6 +490,10 @@ const router = createBrowserRouter([
   {
     path: "/leaderboard",
     element: <Leaderboard />,
+  },
+  {
+    path: "/donation-page",
+    element: <DonationPage />,
   },
 ]);
 

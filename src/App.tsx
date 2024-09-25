@@ -300,6 +300,9 @@ function App() {
         <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
           <Link to={`/leaderboard`}>Leaderboard</Link>
         </li>
+        <li className="text-lg w-1/4 text-center my-2 bg-blue-500 text-white p-2 rounded-lg">
+          <Link to={`/donation-page`}>Donation Page</Link>
+        </li>
       </ul>
     </div>
   );
