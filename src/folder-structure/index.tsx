@@ -12,7 +12,7 @@ import HomeLink from "../home-link";
 type TFolder = {
   folders: string[];
   files: string[];
-  isBase?: boolean;
+  parent?: string;
 };
 
 type SFolder = TFolder & { title: string };
@@ -21,7 +21,6 @@ const INIT_FOLDERS: Record<string, TFolder> = {
   a: {
     folders: ["aa"],
     files: ["a.js", "a.css", "a.html"],
-    isBase: true,
   },
   aa: {
     folders: ["aaa"],
@@ -30,12 +29,10 @@ const INIT_FOLDERS: Record<string, TFolder> = {
   b: {
     folders: ["bb"],
     files: [],
-    isBase: true,
   },
   c: {
     folders: [],
     files: ["c.html"],
-    isBase: true,
   },
   aaa: {
     folders: [],
@@ -54,6 +51,14 @@ const createFolderState = (
   for (const k in folders) {
     sFolders[k] = { ...folders[k], title: k };
   }
+
+  for (const k in sFolders) {
+    const subfolders = sFolders[k].folders;
+    subfolders.forEach((subfolder) => {
+      sFolders[subfolder] = { ...sFolders[subfolder], parent: k };
+    });
+  }
+
   return sFolders;
 };
 
@@ -70,13 +75,11 @@ const useFolderContext = () => useContext(FolderContext);
 const Folder = ({
   title,
   files,
-  isBase,
   parent = "",
   handleDragEndForParent,
 }: {
   title: string;
   files: string[];
-  isBase?: boolean;
   parent?: string;
   handleDragEndForParent?: (ev: DragEvent<HTMLButtonElement>) => void;
 }) => {
@@ -88,8 +91,7 @@ const Folder = ({
   };
 
   const [isOpen, setIsOpen] = useState(false);
-  const sub = getSubfolders();
-  const [subFolders, setSubFolders] = useState<SFolder[]>(sub);
+  const [subFolders, setSubFolders] = useState<SFolder[]>(getSubfolders());
 
   const toggleOpen = () => setIsOpen((prev) => !prev);
 
@@ -101,18 +103,11 @@ const Folder = ({
     setFolders?.((prev: Record<string, SFolder>) => {
       const newFolders = { ...prev };
 
-      if (type === "file") {
-        newFolders[source].files = newFolders[source].files.filter(
-          (f) => f !== name,
-        );
-        newFolders[dest].files = [...newFolders[dest].files, name];
-      }
-      if (type === "folder") {
-        newFolders[source].folders = newFolders[source].folders.filter(
-          (f) => f !== name,
-        );
-        newFolders[dest].folders = [...newFolders[dest].folders, name];
-      }
+      newFolders[source][type] = newFolders[source][type].filter(
+        (f) => f !== name,
+      );
+      newFolders[dest][type] = [...newFolders[dest][type], name];
+
       return newFolders;
     });
     setSubFolders(getSubfolders());
@@ -140,11 +135,11 @@ const Folder = ({
       <button
         className="text-xl py-6 flex"
         onClick={toggleOpen}
-        draggable={!isBase}
+        draggable={!!parent}
         onDrop={(ev) => handleDrop(ev, title)}
         onDragOver={(ev) => ev.preventDefault()}
         onDragStart={(ev) =>
-          handleDragStart(ev, { source: parent, name: title, type: "folder" })
+          handleDragStart(ev, { source: parent, name: title, type: "folders" })
         }
         onDragEnd={(ev) => handleDragEndForParent?.(ev)}
       >
@@ -172,7 +167,7 @@ const Folder = ({
                   handleDragStart(ev, {
                     source: title,
                     name: file,
-                    type: "file",
+                    type: "files",
                   })
                 }
               >
@@ -200,7 +195,7 @@ const FolderStructure = () => {
 
         <main className="flex flex-col w-full min-h-screen py-8 px-4">
           {Object.values(folders)
-            .filter((f) => f.isBase)
+            .filter((f) => !f.parent)
             .map((folder, i) => {
               return <Folder key={`base-folder-${i}`} {...folder} />;
             })}
