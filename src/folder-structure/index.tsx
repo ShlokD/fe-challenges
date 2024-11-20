@@ -150,7 +150,7 @@ const Folder = ({
         }
         onDragEnd={(ev) => handleDragEndForParent?.(ev)}
       >
-        📁 {title}
+        {isOpen ? "📂" : "📁"} {title}
       </button>
       {isOpen && (
         <div className="flex flex-col">
