@@ -104,6 +104,7 @@ const Leaderboard = React.lazy(() => import("./leaderboard"));
 const DonationPage = React.lazy(() => import("./donation-page"));
 const ExportImage = React.lazy(() => import("./export-image"));
 const NotificationsPopup = React.lazy(() => import("./notifications-popup"));
+const FolderStructure = React.lazy(() => import("./folder-structure/index.js"));
 
 const router = createBrowserRouter([
   {
@@ -505,6 +506,10 @@ const router = createBrowserRouter([
   {
     path: "/notifications-popup",
     element: <NotificationsPopup />,
+  },
+  {
+    path: "/folder-structure",
+    element: <FolderStructure />,
   },
 ]);
 
