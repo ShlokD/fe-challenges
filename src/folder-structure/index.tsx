@@ -1,10 +1,23 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-import { createContext, useContext, useState } from "react";
+import {
+  Dispatch,
+  DragEvent,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from "react";
 
 import HomeLink from "../home-link";
 
-const INIT_FOLDERS = {
+type TFolder = {
+  folders: string[];
+  files: string[];
+  isBase?: boolean;
+};
+
+type SFolder = TFolder & { title: string };
+
+const INIT_FOLDERS: Record<string, TFolder> = {
   a: {
     folders: ["aa"],
     files: ["a.js", "a.css", "a.html"],
@@ -34,17 +47,22 @@ const INIT_FOLDERS = {
   },
 };
 
-const createFolderState = (folders) => {
-  const sFolders = { ...folders };
-  for (const k in sFolders) {
-    sFolders[k] = { ...sFolders[k], title: k };
+const createFolderState = (
+  folders: Record<string, TFolder>,
+): Record<string, SFolder> => {
+  const sFolders: Record<string, SFolder> = {};
+  for (const k in folders) {
+    sFolders[k] = { ...folders[k], title: k };
   }
   return sFolders;
 };
 
-const FolderContext = createContext({
-  folders: [],
-  setFolders: () => null,
+const FolderContext = createContext<{
+  folders: Record<string, SFolder>;
+  setFolders: Dispatch<SetStateAction<Record<string, SFolder>>> | null;
+}>({
+  folders: {} as Record<string, SFolder>,
+  setFolders: null,
 });
 
 const useFolderContext = () => useContext(FolderContext);
@@ -55,6 +73,12 @@ const Folder = ({
   isBase,
   parent = "",
   handleDragEndForParent,
+}: {
+  title: string;
+  files: string[];
+  isBase?: boolean;
+  parent?: string;
+  handleDragEndForParent?: (ev: DragEvent<HTMLButtonElement>) => void;
 }) => {
   const { folders, setFolders } = useFolderContext();
 
@@ -65,16 +89,16 @@ const Folder = ({
 
   const [isOpen, setIsOpen] = useState(false);
   const sub = getSubfolders();
-  const [subFolders, setSubFolders] = useState(sub);
+  const [subFolders, setSubFolders] = useState<SFolder[]>(sub);
 
   const toggleOpen = () => setIsOpen((prev) => !prev);
 
-  const handleDrop = (ev, dest) => {
+  const handleDrop = (ev: DragEvent<HTMLButtonElement>, dest: string) => {
     ev.preventDefault();
     ev.dataTransfer.effectAllowed = "move";
     const data = ev.dataTransfer.getData("text/plain");
     const { source, name, type } = JSON.parse(data);
-    setFolders((prev) => {
+    setFolders?.((prev: Record<string, SFolder>) => {
       const newFolders = { ...prev };
 
       if (type === "file") {
@@ -94,12 +118,19 @@ const Folder = ({
     setSubFolders(getSubfolders());
   };
 
-  const handleDragStart = (ev, payload) => {
+  const handleDragStart = (
+    ev: DragEvent<HTMLButtonElement>,
+    payload: {
+      source: string;
+      name: string;
+      type: string;
+    },
+  ) => {
     ev.dataTransfer.effectAllowed = "move";
     ev.dataTransfer.setData("text/plain", JSON.stringify(payload));
   };
 
-  const handleDragEnd = (ev) => {
+  const handleDragEnd = (ev: DragEvent<HTMLButtonElement>) => {
     ev.preventDefault();
     setSubFolders(getSubfolders());
   };
@@ -115,13 +146,13 @@ const Folder = ({
         onDragStart={(ev) =>
           handleDragStart(ev, { source: parent, name: title, type: "folder" })
         }
-        onDragEnd={(ev) => handleDragEndForParent(ev)}
+        onDragEnd={(ev) => handleDragEndForParent?.(ev)}
       >
         📁 {title}
       </button>
       {isOpen && (
         <div className="flex flex-col">
-          {subFolders.map((folder, i) => {
+          {subFolders.map((folder, i: number) => {
             return (
               <Folder
                 key={`${title}-folder-${i}`}
@@ -131,7 +162,7 @@ const Folder = ({
               />
             );
           })}
-          {files.map((file, i) => {
+          {files.map((file, i: number) => {
             return (
               <button
                 key={`${title}-${file}-${i}`}
@@ -155,7 +186,9 @@ const Folder = ({
   );
 };
 const FolderStructure = () => {
-  const [folders, setFolders] = useState(createFolderState(INIT_FOLDERS));
+  const [folders, setFolders] = useState<Record<string, SFolder>>(
+    createFolderState(INIT_FOLDERS),
+  );
 
   return (
     <FolderContext.Provider value={{ folders, setFolders }}>
