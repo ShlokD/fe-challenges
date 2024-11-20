@@ -103,11 +103,18 @@ const Folder = ({
     setFolders?.((prev: Record<string, SFolder>) => {
       const newFolders = { ...prev };
 
-      newFolders[source][type] = newFolders[source][type].filter(
-        (f) => f !== name,
-      );
-      newFolders[dest][type] = [...newFolders[dest][type], name];
-
+      if (type === "file") {
+        newFolders[source].files = newFolders[source].files.filter(
+          (f) => f !== name,
+        );
+        newFolders[dest].files = [...newFolders[dest].files, name];
+      }
+      if (type === "folder") {
+        newFolders[source].folders = newFolders[source].folders.filter(
+          (f) => f !== name,
+        );
+        newFolders[dest].folders = [...newFolders[dest].folders, name];
+      }
       return newFolders;
     });
     setSubFolders(getSubfolders());
@@ -139,7 +146,7 @@ const Folder = ({
         onDrop={(ev) => handleDrop(ev, title)}
         onDragOver={(ev) => ev.preventDefault()}
         onDragStart={(ev) =>
-          handleDragStart(ev, { source: parent, name: title, type: "folders" })
+          handleDragStart(ev, { source: parent, name: title, type: "folder" })
         }
         onDragEnd={(ev) => handleDragEndForParent?.(ev)}
       >
@@ -167,7 +174,7 @@ const Folder = ({
                   handleDragStart(ev, {
                     source: title,
                     name: file,
-                    type: "files",
+                    type: "file",
                   })
                 }
               >
