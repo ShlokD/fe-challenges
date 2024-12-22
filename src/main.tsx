@@ -105,6 +105,7 @@ const DonationPage = React.lazy(() => import("./donation-page"));
 const ExportImage = React.lazy(() => import("./export-image"));
 const NotificationsPopup = React.lazy(() => import("./notifications-popup"));
 const FolderStructure = React.lazy(() => import("./folder-structure/index.js"));
+const CalendarReminder = React.lazy(() => import("./calendar-reminder"));
 
 const router = createBrowserRouter([
   {
@@ -510,6 +511,10 @@ const router = createBrowserRouter([
   {
     path: "/folder-structure",
     element: <FolderStructure />,
+  },
+  {
+    path: "/calendar-reminder",
+    element: <CalendarReminder />,
   },
 ]);
 
