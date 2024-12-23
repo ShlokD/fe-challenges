@@ -106,6 +106,7 @@ const ExportImage = React.lazy(() => import("./export-image"));
 const NotificationsPopup = React.lazy(() => import("./notifications-popup"));
 const FolderStructure = React.lazy(() => import("./folder-structure/index.js"));
 const CalendarReminder = React.lazy(() => import("./calendar-reminder"));
+const ColorAccordion = React.lazy(() => import("./color-accordion"));
 
 const router = createBrowserRouter([
   {
@@ -515,6 +516,10 @@ const router = createBrowserRouter([
   {
     path: "/calendar-reminder",
     element: <CalendarReminder />,
+  },
+  {
+    path: "/color-accordion",
+    element: <ColorAccordion />,
   },
 ]);
 
