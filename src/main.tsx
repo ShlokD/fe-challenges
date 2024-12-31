@@ -107,6 +107,7 @@ const NotificationsPopup = React.lazy(() => import("./notifications-popup"));
 const FolderStructure = React.lazy(() => import("./folder-structure/index.js"));
 const CalendarReminder = React.lazy(() => import("./calendar-reminder"));
 const ColorAccordion = React.lazy(() => import("./color-accordion"));
+const GlassyCards = React.lazy(() => import("./glassy-cards"));
 
 const router = createBrowserRouter([
   {
@@ -520,6 +521,10 @@ const router = createBrowserRouter([
   {
     path: "/color-accordion",
     element: <ColorAccordion />,
+  },
+  {
+    path: "/glassy-cards",
+    element: <GlassyCards />,
   },
 ]);
 
