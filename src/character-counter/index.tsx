@@ -9,6 +9,29 @@ type Count = {
 
 type ChangeArgs = Count & { index: number };
 
+const calculateDensity = (text: string) => {
+  const densityMap = text
+    .toUpperCase()
+    .split("")
+    .reduce((density, char) => {
+      if (char !== " ") {
+        if (density[char]) {
+          density[char] += 1;
+        } else {
+          density[char] = 1;
+        }
+      }
+      return density;
+    }, {} as Record<string, number>);
+
+  const density = [];
+  for (let key in densityMap) {
+    density.push([key, `${densityMap[key]}`]);
+  }
+
+  return density.sort((a, b) => Number(b[1]) - Number(a[1])).slice(0, 5);
+};
+
 type CounterProps = {
   index: number;
   title: string;
@@ -18,6 +41,7 @@ type CounterProps = {
 const Counter = ({ title, index, onChange }: CounterProps) => {
   const [text, setText] = useState("");
   const [count, setCount] = useState<Count>({ ch: 0, words: 0 });
+  const [density, setDensity] = useState<Array<Array<string>>>([]);
 
   const handleTextChange = (ev: ChangeEvent<HTMLTextAreaElement>) => {
     const value = ev.target.value;
@@ -28,8 +52,10 @@ const Counter = ({ title, index, onChange }: CounterProps) => {
     }));
     onChange({ index, ch: value.length, words: newWordCount });
     setText(value);
+    setDensity(calculateDensity(value));
   };
 
+  const densitySum = density.reduce((sum, val) => (sum += Number(val[1])), 0);
   return (
     <div className="flex flex-col w-full p-4 border-b-2">
       <label htmlFor={`text-${title}`} className="font-bold text-xl">
@@ -56,6 +82,30 @@ const Counter = ({ title, index, onChange }: CounterProps) => {
             {count.words}
           </p>
         </div>
+      </div>
+      <div className="flex flex-col gap-4">
+        <p className="text-xl font-bold">Character Density</p>
+        {density.map((charDensity, i) => {
+          const charCount = Number(charDensity[1]);
+          const percentage = (charCount / count.ch) * 100;
+          return (
+            <div
+              className="flex gap-4 items-center"
+              key={`density-${index}-${i}`}
+            >
+              <span className="font-bold text-lg">{charDensity[0]}</span>
+              <progress
+                id={`density-${index}-${i}`}
+                value={charCount}
+                max={densitySum}
+                className="w-1/2"
+              />
+              <label className="text-lg" htmlFor={`density-${index}-${i}`}>
+                {charCount} ({percentage.toFixed(2)}%)
+              </label>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

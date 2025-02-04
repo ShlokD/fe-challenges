@@ -27,5 +27,6 @@ describe("<CharacterCounter />", () => {
 
     expect(screen.getByText(/34/i)).toBeDefined();
     expect(screen.getByText("8")).toBeDefined();
+    expect(screen.getAllByRole("progressbar")).toHaveLength(10);
   });
 });
