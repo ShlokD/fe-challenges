@@ -25,7 +25,7 @@ const calculateDensity = (text: string) => {
     }, {} as Record<string, number>);
 
   const density = [];
-  for (let key in densityMap) {
+  for (const key in densityMap) {
     density.push([key, `${densityMap[key]}`]);
   }
 
