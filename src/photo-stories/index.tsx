@@ -96,7 +96,7 @@ const PhotoStories = () => {
           })}
         </div>
         <div
-          className={`flex flex-col transition-opacity ${
+          className={`flex flex-col transition-opacity w-fullnpm ${
             showStories ? "opacity-100" : "opacity-0 invisible"
           }`}
         >
@@ -129,6 +129,7 @@ const PhotoStories = () => {
               backgroundImage: `url(${images[currentStory]})`,
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
               height: "90vh",
             }}
           ></div>
