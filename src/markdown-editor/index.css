@@ -1,0 +1,28 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold
+}
+
+
+ul li {
+    list-style-type: disc;
+    appearance: list;
+}
+
+a {
+    color: blue;
+    text-decoration: underline;
+}
+
+hr {
+    border-color: black;
+}
+
+pre {
+    background-color: beige;
+    padding: 0.5em
+}

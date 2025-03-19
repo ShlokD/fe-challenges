@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
 import HomeLink from "../home-link";
+import "./index.css";
 
 const purify = DOMPurify(window);
 
@@ -46,7 +47,8 @@ const MarkdownEditor = () => {
           >
             <p className="text-lg font-bold">Output</p>
             <div
-              className="border-2 border-black h-full rounded-lg text-lg overflow-scroll p-2"
+              className="border-2 border-black h-full rounded-lg text-lg overflow-scroll p-6"
+              id="markdown-output"
               dangerouslySetInnerHTML={{ __html: html }}
             ></div>
             <button
