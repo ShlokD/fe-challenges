@@ -74,7 +74,7 @@ const Randomizer = () => {
                 Add Coin
               </button>
             </div>
-            <div className="flex my-4 p-2 gap-4">
+            <div className="flex flex-wrap my-4 p-2 gap-4">
               {coins.map((coin, i) => {
                 return (
                   <button
@@ -111,7 +111,7 @@ const Randomizer = () => {
               </button>
             </div>
           </div>
-          <div className="flex my-4 p-2 gap-4">
+          <div className="flex flex-wrap my-4 p-2 gap-4">
             {dice.map((die, i) => {
               return (
                 <button
