@@ -109,6 +109,7 @@ const CalendarReminder = React.lazy(() => import("./calendar-reminder"));
 const ColorAccordion = React.lazy(() => import("./color-accordion"));
 const GlassyCards = React.lazy(() => import("./glassy-cards"));
 const PhotoStories = React.lazy(() => import("./photo-stories"));
+const RecipesList = React.lazy(() => import("./recipes-list"));
 
 const router = createBrowserRouter([
   {
@@ -530,6 +531,10 @@ const router = createBrowserRouter([
   {
     path: "/photo-stories",
     element: <PhotoStories />,
+  },
+  {
+    path: "/recipes-list",
+    element: <RecipesList />,
   },
 ]);
 
