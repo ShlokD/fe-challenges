@@ -5,14 +5,14 @@ import HomeLink from "../home-link";
 const BASE_URL = "https://dummyjson.com/recipes";
 const SEARCH_URL = "https://dummyjson.com/recipes/search";
 enum SortOptions {
-  NONE,
-  COOKLOW,
-  COOKHIGH,
-  PREPLOW,
-  PREPHIGH,
+  NONE = "None",
+  COOKLOW = "CookLow",
+  COOKHIGH = "CookHigh",
+  PREPLOW = "PrepLow",
+  PREPHIGH = "PrepHigh",
 }
 
-const URLStrings: Record<string, string> = {
+const URLStrings: Record<SortOptions, string> = {
   [SortOptions.NONE]: "",
   [SortOptions.COOKLOW]: "sortBy=cookTimeMinutes&order=asc",
   [SortOptions.COOKHIGH]: "sortBy=cookTimeMinutes&order=desc",
@@ -51,6 +51,7 @@ const RecipesList = () => {
   const [showDetails, setShowDetails] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [sort, setSort] = useState<SortOptions>(SortOptions.NONE);
 
   const loadRecipes = async (options: string = "", url: string = BASE_URL) => {
     try {
@@ -83,9 +84,13 @@ const RecipesList = () => {
     document.body.classList.remove("overflow-hidden");
   };
 
-  const loadNewRecipes = async (value: string) => {
-    const optionsString = URLStrings[value];
-    await loadRecipes(optionsString);
+  const loadNewRecipes = async (value: SortOptions) => {
+    const sortString = URLStrings[value];
+    setSort(value);
+    const optionsString =
+      searchTerm.length === 0 ? sortString : `q=${searchTerm}&${sortString}`;
+    const url = searchTerm.length === 0 ? BASE_URL : SEARCH_URL;
+    await loadRecipes(optionsString, url);
   };
 
   const searchRecipes = async (ev: FormEvent) => {
@@ -93,8 +98,10 @@ const RecipesList = () => {
     if (!searchTerm) {
       return;
     }
+
     const optionsString = `q=${searchTerm}`;
     await loadRecipes(optionsString, SEARCH_URL);
+    setSort(SortOptions.NONE);
   };
 
   return (
@@ -122,7 +129,10 @@ const RecipesList = () => {
               <select
                 id="sort"
                 className="p-4 border-2 rounded-xl"
-                onChange={(ev) => loadNewRecipes(ev?.target?.value)}
+                onChange={(ev) =>
+                  loadNewRecipes(ev?.target?.value as SortOptions)
+                }
+                value={sort}
               >
                 <option value={SortOptions.NONE}>Recommended</option>
                 <option value={SortOptions.COOKLOW}>
