@@ -53,7 +53,7 @@ const RecipesList = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sort, setSort] = useState<SortOptions>(SortOptions.NONE);
 
-  const loadRecipes = async (options: string = "", url: string = BASE_URL) => {
+  const loadRecipes = async (options = "", url: string = BASE_URL) => {
     try {
       setLoading(true);
       const res = await fetch(`${url}?${options}`);

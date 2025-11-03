@@ -110,6 +110,7 @@ const ColorAccordion = React.lazy(() => import("./color-accordion"));
 const GlassyCards = React.lazy(() => import("./glassy-cards"));
 const PhotoStories = React.lazy(() => import("./photo-stories"));
 const RecipesList = React.lazy(() => import("./recipes-list"));
+const VarietySort = React.lazy(() => import("./variety-sort"));
 
 const router = createBrowserRouter([
   {
@@ -535,6 +536,10 @@ const router = createBrowserRouter([
   {
     path: "/recipes-list",
     element: <RecipesList />,
+  },
+  {
+    path: "/variety-sort",
+    element: <VarietySort />,
   },
 ]);
 
