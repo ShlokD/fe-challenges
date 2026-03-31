@@ -111,6 +111,7 @@ const GlassyCards = React.lazy(() => import("./glassy-cards"));
 const PhotoStories = React.lazy(() => import("./photo-stories"));
 const RecipesList = React.lazy(() => import("./recipes-list"));
 const VarietySort = React.lazy(() => import("./variety-sort"));
+const HoursTracker = React.lazy(() => import("./hours-tracker"));
 
 const router = createBrowserRouter([
   {
@@ -540,6 +541,10 @@ const router = createBrowserRouter([
   {
     path: "/variety-sort",
     element: <VarietySort />,
+  },
+  {
+    path: "/hours-tracker",
+    element: <HoursTracker />,
   },
 ]);
 

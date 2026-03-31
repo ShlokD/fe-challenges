@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { SpinnerDiamond } from "spinners-react";
 
 import HomeLink from "../home-link";
 
@@ -54,9 +53,7 @@ const ProductGrid = () => {
         <h1 className="font-bold text-2xl">Product Grid</h1>
       </header>
       <main className="flex flex-col min-h-screen w-full">
-        {images < 18 && (
-          <SpinnerDiamond size={800} className="self-center my-20" />
-        )}
+        {images < 18 && <p>Loading...</p>}
         <div
           className={`grid grid-cols-2 lg:grid-cols-4 ${
             images >= 18 ? "visible" : "invisible"

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { SpinnerDotted } from "spinners-react";
 import UAParser from "ua-parser-js";
 
 import HomeLink from "../home-link";
@@ -60,7 +59,7 @@ const IPLookup = () => {
             Error loading IP details. Please enable cookies and try again
           </p>
         )}
-        {fetchState === "LOADING" && <SpinnerDotted className="self-center" />}
+        {fetchState === "LOADING" && <p>Loading...</p>}
         {fetchState === "DONE" && ipDetails.ip && (
           <div className="flex flex-col bg-white p-4 lg:p-8 gap-4 shadow-xl rounded-xl">
             <p className="text-sm md:text-md lg:text-lg text-gray-300">

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { SpinnerCircular } from "spinners-react";
 
 import HomeLink from "../home-link";
 
@@ -57,7 +56,7 @@ const Patatap = () => {
       <main className="flex flex-col w-full bg-gray-600">
         {!play && (
           <div className="absolute" style={{ top: "40%", left: "40%" }}>
-            <SpinnerCircular title="loader" size="100%" enabled={!play} />
+            <p>Loading...</p>
           </div>
         )}
 

@@ -330,6 +330,9 @@ function App() {
         <li className="md:text-lg text-sm  w-1/4 text-center my-2 bg-blue-500 text-white p-2 md:p-3 rounded-lg">
           <Link to={`/variety-sort`}>Variety Sort</Link>
         </li>
+        <li className="md:text-lg text-sm  w-1/4 text-center my-2 bg-blue-500 text-white p-2 md:p-3 rounded-lg">
+          <Link to={`/hours-tracker`}>Hours Tracker</Link>
+        </li>
       </ul>
     </div>
   );

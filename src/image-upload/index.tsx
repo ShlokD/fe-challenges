@@ -1,5 +1,4 @@
 import { ChangeEvent, DragEvent, useEffect, useRef, useState } from "react";
-import { SpinnerRomb } from "spinners-react";
 
 import HomeLink from "../home-link";
 
@@ -133,7 +132,7 @@ const ImageUpload = () => {
           </p>
         )}
 
-        {loading && <SpinnerRomb size={200} />}
+        {loading && <p>Loading...</p>}
       </main>
     </div>
   );

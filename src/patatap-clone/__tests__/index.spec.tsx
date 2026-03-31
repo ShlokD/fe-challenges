@@ -18,7 +18,7 @@ beforeEach(() => {
 
 describe("<Patatap />", () => {
   it("should render buttons", async () => {
-    const svg = await screen.findByTitle("loader");
+    const svg = await screen.findByText(/loading/i);
     waitForElementToBeRemoved(svg);
     expect(await screen.findAllByRole("button")).toHaveLength(26);
   });

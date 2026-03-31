@@ -81,6 +81,10 @@ const HeatMap = () => {
         <h1 className="font-bold text-2xl text-white"> Heat Map </h1>
       </header>
       <main className="flex flex-col w-full h-full items-center p-4">
+        <h2 className="text-center">
+          Click on a square and increment the counter below to show its heat map
+          value
+        </h2>
         <div
           className="grid gap-1 m-2 bg-purple-200 p-2 w-11/12"
           style={{
